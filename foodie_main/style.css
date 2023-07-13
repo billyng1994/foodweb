@@ -1,0 +1,246 @@
+/*
+Theme Name: foodie
+Theme URI: https://wordpress.org/themes/twentytwentythree
+Author: Billy Ng
+Author URI: /
+Description: fancy food page
+Requires at least: 6.1
+Tested up to: 6.2
+Requires PHP: 5.6
+Version: 1.0
+Text Domain: foodie
+Tags: blog
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Bacasime+Antique&display=swap');
+
+body {
+    /* overflow-x: hidden; */
+    font-family: 'Bacasime+Antique'
+}
+
+.main-wrapper {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    min-height: 90vh;
+}
+
+.logo {
+    max-width: 250px;
+}
+
+.nav-item a{
+    color: black;
+}
+
+#navbarcontrol:hover {
+    color: lightgrey;
+}
+
+#navbarcontrol {
+    display: none;
+    margin: 10px;
+    cursor: pointer;
+    text-align: start;
+}
+
+.bandhead{
+    margin:10px;
+    max-width:100%;
+}  
+
+.postlist{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: solid rgba(0,0,0,.08);
+    align-items: flex-start;
+}
+
+.postlist li {
+    width: 100%;
+}
+
+.postlist a {
+    text-decoration: none;
+}
+
+.postlist img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+}
+
+.thumbnailContainer {
+    /* width: 370px;
+    height: 221px; */
+    /* width: 100%; */
+    min-width: 250px;
+    overflow:hidden;
+    left:0;
+    right:0;
+    display: flex;
+    align-items: center;
+}
+
+.tag {
+    padding: 0 5px 5px 5px;
+}
+
+.gallery{
+    display:flex;
+    flex-wrap: nowrap !important;
+    overflow: hidden;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+article.content {
+    padding-top: 20px !important; 
+}
+
+.navbar {
+    z-index: 100;
+    background-color: white;
+}
+
+.stitle {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.stitle::before, .stitle::after {
+    content: "";
+    display: block;
+    height: 1px;
+    background-color: #111;
+    flex-grow: 1;
+}
+
+.stitle span {
+    background-color: #dd1c6d;
+    padding: 2px 29px;
+    margin: 0 26px;
+    display: inline-block;
+    color: #fff;
+    font-size: 1.145rem;
+    letter-spacing: 4px;
+}
+
+.attachment-thumbnail:hover, .attachment-post-thumbnail:hover {
+    -webkit-filter: brightness(50%);
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+
+}
+
+.sidecol::after {
+    content: "";
+    display: block;
+    height: 4px;
+    background-color: #111;
+    flex-grow: 1;
+}
+
+.sidecol {
+    text-align: center;
+    margin: 1rem;
+}
+
+/*scrollbar*/
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+box-shadow: transparent; 
+border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: grey; 
+border-radius: 10px;
+}
+
+/* destop specific*/
+@media screen and (min-width:992px){
+    .bandhead{
+        text-align: start;
+    }   
+    #sectionbar .container-fluid{
+        max-width: 76.875rem;
+    }
+    #sectionbar{
+        border-bottom: solid rgba(0,0,0,.08);
+    }
+    #mobilesectionbar{
+        display: none;
+    }
+    .hottopic {
+        display:flex; 
+        justify-content: space-around; 
+        align-items: center;
+    }
+}
+
+/* mobile specific*/
+@media screen and (max-width:992px){
+    .navbar .container-fluid, .navbar-expand-lg .navbar-collapse, .navbar-expand-lg .navbar-nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .navbar{
+        height: 100vh;
+        align-items: flex-start;
+        position: fixed;
+        display: none;
+    }
+    #navbarcontrol {
+        display: block;
+    }
+    #sectionbar {
+        display: none;
+    }
+    #mobilesectionbar{
+        overflow: scroll;
+        padding-top: 1rem;
+        height: -webkit-fill-available;
+    }
+    .collapse {
+        list-style-type: none !important;
+    }
+    ul.collapse ~li{
+        list-style-type: none !important;
+    }
+    div.hottopicpostscontainer {
+        width: 100% !important;
+    }
+    .stitle{
+        margin-bottom: 1rem;
+    }
+    .hideinmobile{
+        display: none;
+    }
+    .thumbnailContainer {
+        width: 100% !important;
+    }
+}
