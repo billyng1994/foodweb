@@ -99,24 +99,24 @@ function wpdocs_excerpt_more( $more ) {
 add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
 
 // if you create category then change the permerlink structure, this will help redirect
-function t5_redirect_to_category( $template )
-{
-    if ( ! is_404() )
-        return $template;
+// function t5_redirect_to_category( $template )
+// {
+//     if ( ! is_404() )
+//         return $template;
 
-    global $wp_rewrite, $wp_query;
+//     global $wp_rewrite, $wp_query;
 
-    if ( '/%category%/%postname%/' !== $wp_rewrite->permalink_structure )
-        return $template;
+//     if ( '/%category%/%postname%/' !== $wp_rewrite->permalink_structure )
+//         return $template;
 
-    if ( ! $post = get_page_by_path( $wp_query->query['category_name'], OBJECT, 'post' ) )
-        return $template;
+//     if ( ! $post = get_page_by_path( $wp_query->query['category_name'], OBJECT, 'post' ) )
+//         return $template;
 
-    $permalink = get_permalink( $post->ID );
+//     $permalink = get_permalink( $post->ID );
 
-    wp_redirect( $permalink, 301 );
-    exit;
-}
+//     wp_redirect( $permalink, 301 );
+//     exit;
+// }
 
-add_filter( '404_template', 't5_redirect_to_category' );
+// add_filter( '404_template', 't5_redirect_to_category' );
 ?>
