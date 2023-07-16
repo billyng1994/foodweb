@@ -13,7 +13,7 @@ require_once __DIR__ . "/posttitle-control.php";
 }
  ?>
 
-<div class="main-wrapper">
+<div class="main-wrapper" style="min-height:auto">
 	<article class="content px-3 py-5 p-md-5">
 		<?php
 			// Recent posts
@@ -64,9 +64,14 @@ require_once __DIR__ . "/posttitle-control.php";
 			}
 			//echo '</div></div>';
 			echo '</div></div>';
+			echo '</div>';
+			
+			// Mid banner
+			echo '<div id="midbanner"><img src="wp-content\themes\foodie_main\assests\images\midbanner.png"/></div>';
+
+			echo '<div class="main-wrapper" style="min-height:auto">';
 
 			// Trending posts
-
 			echo "<div class='stitle' style='margin:1rem 0'>
 				<span  style='background-color: white; color: black;'>TRENDING</span>
 			</div>";
@@ -94,6 +99,7 @@ require_once __DIR__ . "/posttitle-control.php";
 			}
 			echo '</div>';
 		?>
-	</article>    
+	</article>  
 </div> 
+<div id="giveawayContainer"></div>  
 <?php get_footer() ?>

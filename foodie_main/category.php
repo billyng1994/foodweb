@@ -2,8 +2,7 @@
 get_header();
 ?>
 <div class="main-wrapper">
-<div>this is the page</div>
-<h1 style="text-align: center; background-color: grey; padding: 8px; color: white"><?php echo wp_title('');?></h1>
+<h1 style="text-align: center; background-color: grey; padding: 36px; color: white"><?php echo wp_title('');?></h1>
 
 <?php 
 /* Start the Loop */

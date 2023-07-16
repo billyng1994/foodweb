@@ -1,7 +1,6 @@
 <?php 
 get_header();
 ?>
-<div>this is single</div>
 <?php
 /* Start the Loop */
 while ( have_posts() ) :

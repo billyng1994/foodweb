@@ -54,14 +54,11 @@
                 <!-- Links -->
                 <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="<?php echo get_site_url().'/category/fasion'; ?>">FASHION</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link text-light" href="#nav-districts" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="nav-districts">DISTRICTS</a>
                     <ul class="collapse  p-0 m-0 w-100 bg-light" id="nav-districts">
-                        <li><a class="dropdown-item" href="#">HONG KONG 港島</a></li>
-                        <li><a class="dropdown-item" href="#">KOWLOON 九龍</a></li>
-                        <li><a class="dropdown-item" href="#">NEW TERRITORIES 新界</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/districts/hkl'; ?>">HONG KONG 港島</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/districts/kln'; ?>">KOWLOON 九龍</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/districts/nt'; ?>">NEW TERRITORIES 新界</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -69,42 +66,42 @@
                     <ul class="collapse  p-0 m-0 w-100 bg-light" id="nav-cuisine">
                         <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/cuisine/japanese'; ?>">JAPANESE</a></li>
                         <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/cuisine/western'; ?>">WESTERN</a></li>
-                        <li><a class="dropdown-item" href="#">FRENCH</a></li>
-                        <li><a class="dropdown-item" href="#">SPANISH</a></li>
-                        <li><a class="dropdown-item" href="#">ITALIAN</a></li>
-                        <li><a class="dropdown-item" href="#">KOREAN</a></li>
-                        <li><a class="dropdown-item" href="#">THAI</a></li>
-                        <li><a class="dropdown-item" href="#">CHINESE</a></li>
-                        <li><a class="dropdown-item" href="#">OTHERS</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/cuisine/french'; ?>">FRENCH</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/cuisine/spanish'; ?>">SPANISH</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/cuisine/italian'; ?>">ITALIAN</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/cuisine/korean'; ?>">KOREAN</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/cuisine/thai'; ?>">THAI</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/cuisine/chinese'; ?>">CHINESE</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/cuisine/others'; ?>">OTHERS</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link text-light" href="#nav-michelin" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="nav-michelin">MICHELIN</a>
                     <ul class="collapse  p-0 m-0 w-100 bg-light" id="nav-michelin">
-                        <li><a class="dropdown-item" href="#">1 STARS</a></li>
-                        <li><a class="dropdown-item" href="#">2 STARS</a></li>
-                        <li><a class="dropdown-item" href="#">3 STARS</a></li>
-                        <li><a class="dropdown-item" href="#">MICHELIN GUIDE</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/michelin/one-stars'; ?>">1 STARS</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/michelin/two-stars'; ?>">2 STARS</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/michelin/three-stars'; ?>">3 STARS</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/michelin/michelin-guide'; ?>">MICHELIN GUIDE</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown ">
                     <a class="nav-link text-light" href="#nav-topics" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="nav-topics">TOPICS</a>
                     <ul class="collapse  p-0 m-0 w-100 bg-light" id="nav-topics">
-                        <li><a class="dropdown-item" href="#">BRUNCH</a></li>
-                        <li><a class="dropdown-item" href="#">DINING WITH A  VIEW</a></li>
-                        <li><a class="dropdown-item" href="#">BAR</a></li>
-                        <li><a class="dropdown-item" href="#">CAFE</a></li>
-                        <li><a class="dropdown-item" href="#">TEA SET</a></li>
-                        <li><a class="dropdown-item" href="#">BUFFET</a></li>
-                        <li><a class="dropdown-item" href="#">HK LOCAL FOOD</a></li>
-                        <li><a class="dropdown-item" href="#">ENTERTAINMENT</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/topics/brunch'; ?>">BRUNCH</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/topics/dinning'; ?>">DINING WITH A VIEW</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/topics/bar'; ?>">BAR</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/topics/cafe'; ?>">CAFE</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/topics/tea-set'; ?>">TEA SET</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/topics/buffet'; ?>">BUFFET</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/topics/hk-food'; ?>">HK LOCAL FOOD</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/topics/entertainment'; ?>">ENTERTAINMENT</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="#">TRAVEL</a>
+                    <a class="nav-link text-light" href="<?php echo get_site_url().'/category/topics/travel'; ?>">TRAVEL</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="#">LIMITED OFFERS</a>
+                    <a class="nav-link text-light" href="<?php echo get_site_url().'/category/topics/limited-offers'; ?>">LIMITED OFFERS</a>
                 </li>
                 </ul>
             </div>
@@ -118,57 +115,55 @@
             <div class="container-fluid justify-content-around">
                 <!-- Links -->
                 <ul class="navbar-nav">
-                <li class="nav-item px-2">
-                    <a class="nav-link text-white" href="<?php echo get_site_url().'/category/fasion'; ?>">FASHION</a>
-                </li>
                 <li class="nav-item dropdown px-2">
                     <a class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown" aria-expanded="false" href="#">DISTRICTS</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item my-2" href="#">HONG KONG 港島</a></li>
-                        <li><a class="dropdown-item my-2" href="#">KOWLOON 九龍</a></li>
-                        <li><a class="dropdown-item my-2" href="#">NEW TERRITORIES 新界</a></li>
-                    </ul>      </li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/districts/hkl'; ?>">HONG KONG 港島</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/districts/kln'; ?>">KOWLOON 九龍</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/districts/nt'; ?>">NEW TERRITORIES 新界</a></li>
+                    </ul>      
+                </li>
                 <li class="nav-item dropdown px-2">
                     <a class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown" aria-expanded="false" href="#">CUISINE</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item my-2" href="<?php echo get_site_url().'/category/cuisine/japanese'; ?>">JAPANESE</a></li>
-                        <li><a class="dropdown-item my-2" href="<?php echo get_site_url().'/category/cuisine/western'; ?>">WESTERN</a></li>
-                        <li><a class="dropdown-item my-2" href="#">FRENCH</a></li>
-                        <li><a class="dropdown-item my-2" href="#">SPANISH</a></li>
-                        <li><a class="dropdown-item my-2" href="#">ITALIAN</a></li>
-                        <li><a class="dropdown-item my-2" href="#">KOREAN</a></li>
-                        <li><a class="dropdown-item my-2" href="#">THAI</a></li>
-                        <li><a class="dropdown-item my-2" href="#">CHINESE</a></li>
-                        <li><a class="dropdown-item my-2" href="#">OTHERS</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/cuisine/japanese'; ?>">JAPANESE</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/cuisine/western'; ?>">WESTERN</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/cuisine/french'; ?>">FRENCH</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/cuisine/spanish'; ?>">SPANISH</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/cuisine/italian'; ?>">ITALIAN</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/cuisine/korean'; ?>">KOREAN</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/cuisine/thai'; ?>">THAI</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/cuisine/chinese'; ?>">CHINESE</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/cuisine/others'; ?>">OTHERS</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown px-2">
                     <a class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown" aria-expanded="false" href="#">MICHELIN</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item my-2" href="#">1 STARS</a></li>
-                        <li><a class="dropdown-item my-2" href="#">2 STARS</a></li>
-                        <li><a class="dropdown-item my-2" href="#">3 STARS</a></li>
-                        <li><a class="dropdown-item my-2" href="#">MICHELIN GUIDE</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/michelin/one-stars'; ?>">1 STARS</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/michelin/two-stars'; ?>">2 STARS</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/michelin/three-stars'; ?>">3 STARS</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/michelin/michelin-guide'; ?>">MICHELIN GUIDE</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown px-2">
                     <a class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown" aria-expanded="false" href="#">TOPICS</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item my-2" href="#">BRUNCH</a></li>
-                        <li><a class="dropdown-item my-2" href="#">DINING WITH A  VIEW</a></li>
-                        <li><a class="dropdown-item my-2" href="#">BAR</a></li>
-                        <li><a class="dropdown-item my-2" href="#">CAFE</a></li>
-                        <li><a class="dropdown-item my-2" href="#">TEA SET</a></li>
-                        <li><a class="dropdown-item my-2" href="#">BUFFET</a></li>
-                        <li><a class="dropdown-item my-2" href="#">HK LOCAL FOOD</a></li>
-                        <li><a class="dropdown-item my-2" href="#">ENTERTAINMENT</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/topics/brunch'; ?>">BRUNCH</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/topics/dinning'; ?>">DINING WITH A VIEW</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/topics/bar'; ?>">BAR</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/topics/cafe'; ?>">CAFE</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/topics/tea-set'; ?>">TEA SET</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/topics/buffet'; ?>">BUFFET</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/topics/hk-food'; ?>">HK LOCAL FOOD</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/topics/entertainment'; ?>">ENTERTAINMENT</a></li>
                     </ul>
                 </li>
                 <li class="nav-item px-2">
-                    <a class="nav-link text-light" href="#">TRAVEL</a>
+                    <a class="nav-link text-light" href="<?php echo get_site_url().'/category/topics/travel'; ?>">TRAVEL</a>
                 </li>
                 <li class="nav-item px-2">
-                    <a class="nav-link text-light" href="#">LIMITED OFFERS</a>
+                    <a class="nav-link text-light" href="<?php echo get_site_url().'/category/topics/limited-offers'; ?>">LIMITED OFFERS</a>
                 </li>
                 </ul>
             </div>

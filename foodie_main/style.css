@@ -181,6 +181,32 @@ background: grey;
 border-radius: 10px;
 }
 
+#giveawayContainer{
+    position:relative;
+    border-bottom: solid white;
+    margin-top: 1rem;
+}
+
+#giveawayContainer::before {
+    content: "GIVEAWAY";
+    position: absolute;
+    z-index: 100;
+    /* writing-mode: vertical-lr; */
+    /* right: 0; */
+    font-size: 10vmin;
+    width: 100%;
+    bottom:0;
+    font-weight: bolder;
+    transform: translateY(28%);
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+#midbanner img{
+    width:100%;
+}
+
 /* destop specific*/
 @media screen and (min-width:992px){
     .bandhead{
@@ -222,7 +248,7 @@ border-radius: 10px;
     }
     #mobilesectionbar{
         overflow: scroll;
-        padding-top: 1rem;
+        padding-top: 10%;
         height: -webkit-fill-available;
     }
     .collapse {
@@ -235,7 +261,7 @@ border-radius: 10px;
         width: 100% !important;
     }
     .stitle{
-        margin-bottom: 1rem;
+        margin-bottom: 1rem;  
     }
     .hideinmobile{
         display: none;

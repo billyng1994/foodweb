@@ -72,10 +72,10 @@ window.addEventListener('resize', e => {
         $('.collapse').collapse('hide');
     }
     $('#mobilesectionbar').hide();
-    // if(bandhead){
-    //     bandhead[0].style.transform = "translateX(0%)";
-    //     bandhead[0].style.transition = "all 1s";
-    // }
+    if(bandhead){
+        bandhead[0].style.transform = "translateX(0%)";
+        bandhead[0].style.transition = "all 1s";
+    }
 })
 let galleryContainer = document.querySelectorAll(".gallery")
 let galleryBtnContainer = document.createElement("div");
@@ -114,4 +114,12 @@ function currentSlide(n) {
             }
         }
     }
+}
+
+let giveaway = $(".giveaway")
+let giveawayContainer = $("#giveawayContainer")
+if(giveaway.length > 0){
+    let x = giveaway.detach();
+    x.appendTo(giveawayContainer)
+    console.log(giveawayContainer)
 }
