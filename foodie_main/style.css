@@ -55,7 +55,8 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    border: solid rgba(0,0,0,.08);
+    /* border: solid rgba(0,0,0,.08); */
+    border: solid 10px white;
     align-items: flex-start;
 }
 
@@ -73,6 +74,10 @@ body {
     height: auto;
 }
 
+.postlist div{
+    align-self: center;
+}
+
 .thumbnailContainer {
     /* width: 370px;
     height: 221px; */
@@ -87,6 +92,25 @@ body {
 
 .tag {
     padding: 0 5px 5px 5px;
+    text-decoration: none;;
+}
+
+.tag a {
+    border: solid;
+    border-radius: 20px;
+    padding: 0.5% 2%;
+    border-width: 2px;
+    color: rgba(0,0,0,.4);
+}
+
+.category {
+    font-weight: 800;
+    color: rgba(0,0,0,.4);
+    /* color:black; */
+}
+.category a{
+    text-decoration: none;
+    color: rgba(0,0,0,.4);
 }
 
 .gallery{
@@ -206,6 +230,14 @@ border-radius: 10px;
 
 #midbanner img{
     width:100%;
+}
+
+.content-header{
+    margin: 3% 0;
+}
+
+.date{
+    color: rgba(0,0,0,.4);
 }
 
 /* destop specific*/

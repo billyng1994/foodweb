@@ -33,7 +33,9 @@ require_once __DIR__ . "/posttitle-control.php";
 				$query->the_post();
 				if($firstHotpost){
 					//echo '<div class="col-8">';
-					echo '<div class="hottopicpostscontainer" style="width: 65%;"><a href="'. get_permalink($query->post->ID) .'">'.get_the_post_thumbnail( $query->post->ID, 'thumbnail', array( 'style' => 'max-width:100%;width:100%;height:auto;' )  ) . '</a></div>';
+					echo '<div class="hottopicpostscontainer" style="width: 65%;">';
+					echo '<div class="category" style="padding: 0.1rem 0;">'. get_the_category($query->post->ID)[0]->name .'</div>';
+					echo '<a href="'. get_permalink($query->post->ID) .'">'.get_the_post_thumbnail( $query->post->ID, 'thumbnail', array( 'style' => 'max-width:100%;width:100%;height:auto;' )  ) . '</a></div>';
 					//echo '</div>';
 					echo '<div class="hottopicpostscontainer" style="display: flex; width: 33%; flex-direction: column">';
 					$firstHotpost = false;
@@ -45,7 +47,9 @@ require_once __DIR__ . "/posttitle-control.php";
 					//echo get_the_post_thumbnail( $query->post->ID, 'thumbnail', array( 'style' => 'width: 45%; height: 45%;' )  ) ;
 					echo get_the_post_thumbnail( $query->post->ID, 'thumbnail', array( 'style' => 'width: 100%; height: 100%;' )  ) ;
 					echo '</a>';
-					echo '<div style="padding-left: 1rem; overflow-wrap:anywhere;"><a style="text-decoration: none" href="'. get_permalink($query->post->ID) .'">'.'<h4>';
+					echo '<div style="padding-left: 1rem; overflow-wrap:anywhere;">';
+					echo '<div class="category" style="padding: 0.1rem 0;">'. get_the_category($query->post->ID)[0]->name .'</div>';
+					echo '<a style="text-decoration: none" href="'. get_permalink($query->post->ID) .'"><h4 style="color:black">';
 
 					// $text_threshold = 25;
 					// if(strlen(get_the_title( $query->post->ID )) >= $text_threshold ){
@@ -73,7 +77,7 @@ require_once __DIR__ . "/posttitle-control.php";
 
 			// Trending posts
 			echo "<div class='stitle' style='margin:1rem 0'>
-				<span  style='background-color: white; color: black;'>TRENDING</span>
+				<span  style='background-color: indianred;'>TRENDING</span>
 			</div>";
 
 			wp_reset_postdata();
@@ -88,11 +92,11 @@ require_once __DIR__ . "/posttitle-control.php";
 				<div class="row">';
 				echo '<div class="col-5 thumbnailContainer"><a href="'. get_permalink($query2->post->ID).'">'. get_the_post_thumbnail($query2->post->ID). '</a></div>';
 				echo '<div class="col">';
+				echo '<div class="category" style="padding: 0.1rem 0;">'. get_the_category($query2->post->ID)[0]->name .'</div>';
 				echo '<a href="'. get_permalink($query2->post->ID) .'">';
-				echo print_title(get_the_title( $query2->post->ID ),30, '<h2 style="padding: 5px 0; margin: 5px 0;">','</h2>') ;
+				echo print_title(get_the_title( $query2->post->ID ),30, '<h2 style="margin: 5px 0; color: black;">','</h2>') ;
 				echo '</a>';
-				echo '<div style="padding: 0.1rem 0">'. get_the_category($query2->post->ID)[0]->name .'</div>';
-				echo '<div style="padding: 0.1rem 0">'. date('Y-m-d h:i', get_post_timestamp( $query2->post->ID )) .'</div>';
+				echo '<div class="date" style="padding: 0.1rem 0">'. date('Y-m-d h:i', get_post_timestamp( $query2->post->ID )) .'</div>';
 				echo '<div class="hideinmobile" style="padding: 0.1rem 0">'. get_the_excerpt($query2->post->ID) .'</div>';
 				echo '</div></div>
 				</div>';
@@ -100,6 +104,8 @@ require_once __DIR__ . "/posttitle-control.php";
 			echo '</div>';
 		?>
 	</article>  
+	<hr>
 </div> 
+
 <div id="giveawayContainer"></div>  
 <?php get_footer() ?>
