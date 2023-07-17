@@ -35,7 +35,7 @@
         <!--section bar-->
 
         <div class="container bandhead">
-            <div class="row align-items-center">
+            <div class="row align-items-center bandhead-content">
                 <div class="col"><i class="fas fa-bars" id="navbarcontrol"></i></div>
                 <div class="col col-lg-12">
                     <?php if(function_exists('the_custom_logo')) {

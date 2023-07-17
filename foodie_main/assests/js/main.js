@@ -1,5 +1,5 @@
 let navbarctl = document.getElementById("navbarcontrol");
-let bandhead = document.querySelectorAll(".bandhead")
+let bandhead = document.querySelectorAll(".bandhead-content")
 navbarctl.addEventListener("click", e => {
     if ($('.collapse').is(':visible')) {
         $('.collapse').collapse('hide');
