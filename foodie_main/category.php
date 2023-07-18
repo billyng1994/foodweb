@@ -2,7 +2,7 @@
 get_header();
 ?>
 <div class="main-wrapper">
-<h1 style="text-align: center; background-color: grey; padding: 36px; color: white; margin: 2% 0;"><?php echo wp_title('');?></h1>
+<h1 style="text-align: center; background-color: grey; padding: 36px; color: white; margin: 2% 0;border: solid; border-style: double; border-width: 10px;"><?php echo wp_title('');?></h1>
 
 <?php 
 /* Start the Loop */
@@ -18,8 +18,8 @@ while ( have_posts() ) :
 endwhile; // End of the loop.
 the_posts_pagination(array(
     'mid_size'  => 2,
-    'prev_text' => '←',
-    'next_text' => '→',
+    'prev_text' => '«',
+    'next_text' => '»',
 ) );
 
 echo "</div> ";

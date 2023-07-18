@@ -7,7 +7,7 @@
             <div class="category"><?php the_category('/ '); ?></div>
             <h1 style="overflow-wrap: anywhere"><?php echo the_title(); ?></h1>
             <hr>
-            <span class="date"><?php the_date() ?></span>
+            <span class="date" style="padding-right:2%;"><?php the_date() ?></span>
             <?php 
                 the_tags('<span class="tag"><i class="fa fa-tag"></i>', '</span><span class="tag"><i class="fa fa-tag"></i>', '</span>')
             ?>
@@ -19,10 +19,10 @@
         the_content();
         echo '<div class="d-flex justify-content-between" style="margin: 5% 0">';
         echo '<div>';
-        echo previous_post_link('%link','< Previous');       
+        echo previous_post_link('%link','« Previous',true);       
         echo '</div>';
         echo '<div>';
-        echo next_post_link('%link','Next >');
+        echo next_post_link('%link','Next »',true);
         echo '</div>';
         echo '</div>';
     ?>
@@ -43,8 +43,8 @@
             echo '<a href="'. get_permalink($query2->post->ID) .'">';
             echo  print_title(get_the_title( $query2->post->ID ),30, '<h4 style="padding: 5px 0; margin: 5px 0; color: black">','</h4>') ;
             echo '</a>';
-            echo '<div style="padding: 0.1rem 0">'. get_the_category($query2->post->ID)[0]->name .'</div>';
-            echo '<div style="padding: 0.1rem 0">'. date('Y-m-d h:i', get_post_timestamp( $query2->post->ID )) .'</div>';
+            echo '<div class="category" style="padding: 0.1rem 0">'. get_the_category($query2->post->ID)[0]->name .'</div>';
+            echo '<div class="date" style="padding: 0.1rem 0">'. date('Y-m-d h:i', get_post_timestamp( $query2->post->ID )) .'</div>';
             //echo '<div class="hideinmobile" style="padding: 0.1rem 0">'. get_the_excerpt($query2->post->ID) .'</div>';
             echo '</div></div>
             </div><hr>';

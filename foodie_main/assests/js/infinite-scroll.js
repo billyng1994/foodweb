@@ -26,6 +26,6 @@ jQuery(function($){
                     }
                 });
             }
-        } else console.log('cannot be load')
+        } else console.log('cannot be loaded')
     });
 });

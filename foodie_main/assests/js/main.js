@@ -28,6 +28,25 @@ window.addEventListener ("scroll",(e) => {
         bandhead[0].style.transform = "translateX(0%)";
         bandhead[0].style.transition = "all 1s";
     }
+
+    let mobileLeftMenuUl = document.querySelectorAll(".nav-item ul")
+    if(mobileLeftMenuUl.length > 0){
+        mobileLeftMenuUl.forEach(ul => {
+            if(ul.classList.contains("show")){
+                ul.classList.remove("show")
+            }
+        })
+    }
+
+    let mobileLeftMenuA = document.querySelectorAll(".nav-item a")
+    if(mobileLeftMenuA.length > 0){
+        mobileLeftMenuA.forEach(a => {
+            if(!a.classList.contains("collapsed")){
+                a.classList.add("collapsed")
+                a.setAttribute('aria-expanded',"false")
+            }
+        })
+    }
 })
 
 let galleryImgCount = 0
@@ -121,5 +140,4 @@ let giveawayContainer = $("#giveawayContainer")
 if(giveaway.length > 0){
     let x = giveaway.detach();
     x.appendTo(giveawayContainer)
-    console.log(giveawayContainer)
 }

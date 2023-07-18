@@ -40,15 +40,18 @@ body {
 
 #navbarcontrol {
     display: none;
-    margin: 10px;
+    margin: 20px;
     cursor: pointer;
     text-align: start;
+    color: white;
 }
 
 .bandhead{
-    margin:10px 0;
+    padding:10px 0;
     max-width:100%;
     overflow: hidden;
+    background-color: black;
+    border-bottom: solid rgb(255,204,0);
 }  
 
 .postlist{
@@ -88,6 +91,7 @@ body {
     right:0;
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 .tag {
@@ -112,11 +116,16 @@ body {
     text-decoration: none;
     color: rgba(0,0,0,.4);
 }
+.category a:hover{
+    text-decoration: underline;
+}
+
 
 .gallery{
     display:flex;
     flex-wrap: nowrap !important;
     overflow: hidden;
+    column-gap: unset !important;
 }
 
 .dot {
@@ -172,8 +181,16 @@ article.content {
     -o-transition: all 0.5s ease;
     -ms-transition: all 0.5s ease;
     transition: all 0.5s ease;
-
 }
+
+/* .thumbnailContainer:hover:after, .thumbnailContainer:hover:after {
+    content: "Learn more";
+    position: absolute;
+    color: white;
+    font-size: 24px;
+    left: 0;
+    right: 0;
+} */
 
 .sidecol::after {
     content: "";
@@ -208,7 +225,7 @@ border-radius: 10px;
 
 #giveawayContainer{
     position:relative;
-    border-bottom: solid white;
+    border-bottom: solid rgb(255,204,0);
     margin-top: 1rem;
 }
 
@@ -238,6 +255,35 @@ border-radius: 10px;
 
 .date{
     color: rgba(0,0,0,.4);
+}
+
+.pagination {
+    padding: 10px;
+    font-size: 24px;
+    justify-content: center;
+    margin: 1%;
+}
+
+.pagination span{
+    border: solid grey 2px;
+    padding: 5px;
+    border-radius: 8px;
+    background-color: grey;
+    color: white;
+}
+
+.pagination a {
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+}
+
+.pagination a:hover {
+    color: rgb(255,204,0);
+}
+
+.social-media-icon img{
+    width
 }
 
 /* destop specific*/
