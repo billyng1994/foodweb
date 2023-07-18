@@ -11,8 +11,8 @@
         </div>
         <div class="col d-flex flex-column justify-content-end">
             <div class="social-media-icon">
-                <img src="<?php echo get_template_directory_uri()?>/assests/images/icons8-facebook-50.png" alt="FBLogo">
-                <img style="width:65px; height:65px;" src="<?php echo get_template_directory_uri()?>/assests/images/icons8-instagram-48.png" alt="IGLogo">
+                <a href="https://www.facebook.com/profile.php?id=100063727974911" target="_blank"><img src="<?php echo get_template_directory_uri()?>/assests/images/icons8-facebook-50.png" alt="FBLogo"></a>
+                <a href="https://www.instagram.com/foodcafealcoholic/" target="_blank"><img style="width:65px; height:65px;" src="<?php echo get_template_directory_uri()?>/assests/images/icons8-instagram-48.png" alt="IGLogo"></a>
             </div>
             <p class="m-2 m-sm-3">COPYRIGHT © 2023</p>
         </div>

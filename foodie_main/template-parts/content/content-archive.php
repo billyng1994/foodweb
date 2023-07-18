@@ -1,7 +1,7 @@
 <?php 
 require_once dirname(dirname(__DIR__))."/posttitle-control.php";
 ?>
-<div class="container postlist">    
+<div class="container postlist shadow-sm my-1">    
     <div class="row">
         <div class="col-5 thumbnailContainer"><a href="<?php the_permalink(); ?>"><?php echo the_post_thumbnail();?></a></div>
         <div class="col">

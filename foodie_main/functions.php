@@ -73,7 +73,7 @@ function infinite_scroll() {
     while( $loop->have_posts() ) {
         $loop->the_post();
         // your post display code here
-        echo '<div class="container postlist">    
+        echo '<div class="container postlist shadow-sm my-1">    
         <div class="row">';
         echo '<div class="col-5 thumbnailContainer"><a href="'. get_permalink($loop->post->ID) .'">'. get_the_post_thumbnail($loop->post->ID) . '</a></div>';
         echo '<div class="col">';

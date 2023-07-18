@@ -89,7 +89,7 @@ require_once __DIR__ . "/posttitle-control.php";
 			while ( $query2->have_posts() ) {
 				$query2->the_post();
 				$categories = get_the_category($query2->post->ID);
-				echo '<div class="container postlist">    
+				echo '<div class="container postlist shadow-sm  my-1">    
 				<div class="row">';
 				echo '<div class="col-5 thumbnailContainer"><a href="'. get_permalink($query2->post->ID).'">'. get_the_post_thumbnail($query2->post->ID). '</a></div>';
 				echo '<div class="col">';

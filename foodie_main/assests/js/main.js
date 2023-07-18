@@ -115,6 +115,7 @@ function currentSlide(n) {
     slideIndex = n
     let minusPosition = currentImgSize * slideIndex /2
     let fullGalleryWidth = currentImgSize * galleryImgCount
+    if(galleryContainer.length <= 0) return
     let galleryContainerWidth = galleryContainer[0].offsetWidth
     if(fullGalleryWidth- (minusPosition*2) < galleryContainerWidth){
         for (let i = 0; i < gallery.length; i++) {
