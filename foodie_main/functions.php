@@ -62,11 +62,22 @@ add_action("wp_enqueue_scripts", "foodie_register_scripts");
 
 function infinite_scroll() {
     $paged = $_POST['page'];
-    // $args = array(
-    //     'post_type' => 'post',
-    //     'post_status' => 'publish',
-    //     'paged' => $paged,
-    // );
+
+    // show only 5 pages, then give a category page menu
+    if($paged > 5) {
+        echo '
+        <div style="display: flex; flex-wrap: wrap; margin: 1%;">
+        <button style="margin: 0.3rem;border-radius: 20px;" type="button" class="btn btn-outline-secondary" onclick="window.location.href=\''. get_home_url() . '/category/districts' .'\'">DISTRICTS</button>
+        <button style="margin: 0.3rem;border-radius: 20px;" type="button" class="btn btn-outline-secondary" onclick="window.location.href=\''. get_home_url() . '/category/cuisine' .'\'">CUISINE</button>
+        <button style="margin: 0.3rem;border-radius: 20px;" type="button" class="btn btn-outline-secondary" onclick="window.location.href=\''. get_home_url() . '/category/michelin' .'\'">MICHELIN</button>
+        <button style="margin: 0.3rem;border-radius: 20px;" type="button" class="btn btn-outline-secondary" onclick="window.location.href=\''. get_home_url() . '/category/topics' .'\'">TOPICS</button>
+        <button style="margin: 0.3rem;border-radius: 20px;" type="button" class="btn btn-outline-secondary" onclick="window.location.href=\''. get_home_url() . '/category/travel' .'\'">TRAVEL</button>
+        <button style="margin: 0.3rem;border-radius: 20px;" type="button" class="btn btn-outline-secondary" onclick="window.location.href=\''. get_home_url() . '/category/limited-offers' .'\'">LIMITED OFFERS</button>
+        </div>
+        ';
+        exit;
+    }
+
     wp_reset_postdata();
     $args = array( 'post_type' => 'post', 'post_status' => 'publish', 'orderby' => 'comment_count', 'order' => 'DESC', 'posts_per_page' => 5, 'paged' => $paged );
     $loop = new WP_Query( $args );

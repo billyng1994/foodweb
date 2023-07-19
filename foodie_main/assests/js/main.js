@@ -138,7 +138,14 @@ function currentSlide(n) {
 
 let giveaway = $(".giveaway")
 let giveawayContainer = $("#giveawayContainer")
-if(giveaway.length > 0){
+if(giveaway.length > 0 && giveawayContainer){
     let x = giveaway.detach();
     x.appendTo(giveawayContainer)
+}
+
+let midbanner = $(".midbanner-content")
+let midbannerContainer = $("#midbanner")
+if(midbanner.length > 0 && midbannerContainer){
+    let y = midbanner.detach();
+    y.appendTo(midbannerContainer)
 }

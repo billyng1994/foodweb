@@ -72,7 +72,7 @@ require_once __DIR__ . "/posttitle-control.php";
 			echo '</div>';
 			
 			// Mid banner
-			echo '<div id="midbanner"><img src="wp-content\themes\foodie_main\assests\images\midbanner.png"/></div>';
+			echo apply_filters( 'a3_lazy_load_images', '<div id="midbanner"></div>', null );			
 
 			echo '<div class="main-wrapper" style="min-height:auto">';
 

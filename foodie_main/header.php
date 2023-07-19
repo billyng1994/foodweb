@@ -43,7 +43,7 @@
                         $logo = wp_get_attachment_image_src($custom_logo_id);
                     }
                     ?>
-                    <a href="<?php echo get_site_url(); ?>"><img class="mb-3 mx-auto logo d-block" src="<?php echo $logo[0] ?>" alt="logo"></a>
+                    <a href="<?php echo get_site_url(); ?>"><img class="mb-3 mx-auto logo d-block" src="<?php echo $logo[0] ?>" alt="logo" loading="lazy"></a>
                 </div>
                 <div class="col"></div>
             </div>
