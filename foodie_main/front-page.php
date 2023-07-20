@@ -12,7 +12,6 @@ require_once __DIR__ . "/posttitle-control.php";
 	get_template_part( 'template-parts/content/content-none' );				
 }
  ?>
-
 <div class="main-wrapper" style="min-height:auto">
 	<article class="content px-3 py-5">
 		<?php

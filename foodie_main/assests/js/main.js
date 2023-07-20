@@ -83,6 +83,13 @@ function resizeGallery (ratio){
     }
 }
 
+function htmlToElement(html) {
+    var template = document.createElement('template');
+    html = html.trim(); // Never return a text node of whitespace as the result
+    template.innerHTML = html;
+    return template.content.firstChild;
+}
+
 resizeGallery(0.3);
 window.addEventListener('resize', e => {
     resizeGallery(0.3);
@@ -107,6 +114,8 @@ if (galleryContainer.length > 0){
         galleryBtnContainer.appendChild(galleryBtn);
     }
     galleryContainer[0].parentNode.insertBefore(galleryBtnContainer, galleryContainer[0].nextSibling)
+    // leftButton = htmlToElement('<i class="fa-solid fa-caret-up fa-rotate-270" style="color: #ffcc00;"></i>')
+    // galleryContainer[0].parentNode.insertBefore(leftButton, galleryContainer[0].nextSibling)
 }
 
 let slideIndex = 0;
@@ -135,6 +144,12 @@ function currentSlide(n) {
         }
     }
 }
+// Auto slide
+setInterval(function () {
+    slideIndex++
+    if(slideIndex >= 4) slideIndex = 0
+    currentSlide(slideIndex)    
+}, 3000);
 
 let giveaway = $(".giveaway")
 let giveawayContainer = $("#giveawayContainer")

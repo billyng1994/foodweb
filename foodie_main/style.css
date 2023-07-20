@@ -130,8 +130,8 @@ body {
 
 .dot {
     cursor: pointer;
-    height: 15px;
-    width: 15px;
+    height: 10px;
+    width: 10px;
     margin: 0 5px;
     background-color: #bbb;
     border-radius: 50%;
@@ -174,13 +174,14 @@ article.content {
     letter-spacing: 4px;
 }
 
-.attachment-thumbnail:hover, .attachment-post-thumbnail:hover {
+.attachment-thumbnail:hover, .attachment-post-thumbnail:hover, .gallery img:hover, #midbanner img:hover {
     -webkit-filter: brightness(50%);
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     -ms-transition: all 0.5s ease;
     transition: all 0.5s ease;
+    cursor: pointer;
 }
 
 /* .thumbnailContainer:hover:after, .thumbnailContainer:hover:after {
