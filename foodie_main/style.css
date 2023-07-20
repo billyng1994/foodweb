@@ -165,11 +165,12 @@ article.content {
 }
 
 .stitle span {
-    background-color: #dd1c6d;
+    /* background-color: #dd1c6d; */
+    background-color: rgb(255,204,0);;
     padding: 2px 29px;
     margin: 0 26px;
     display: inline-block;
-    color: #fff;
+    color: black;
     font-size: 1.145rem;
     letter-spacing: 4px;
 }

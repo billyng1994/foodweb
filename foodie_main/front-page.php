@@ -77,7 +77,7 @@ require_once __DIR__ . "/posttitle-control.php";
 
 			// Trending posts
 			echo "<div class='stitle' style='margin:2rem 0'>
-				<span  style='background-color: indianred;'>TRENDING</span>
+				<span>TRENDING</span>
 			</div>";
 
 			wp_reset_postdata();
