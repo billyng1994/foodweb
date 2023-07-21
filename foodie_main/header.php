@@ -56,9 +56,9 @@
                 <li class="nav-item">
                     <a class="nav-link text-light" href="#nav-districts" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="nav-districts">DISTRICTS</a>
                     <ul class="collapse  p-0 m-0 w-100 bg-light" id="nav-districts">
-                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/districts/hkl'; ?>">HONG KONG 港島</a></li>
-                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/districts/kln'; ?>">KOWLOON 九龍</a></li>
-                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/districts/nt'; ?>">NEW TERRITORIES 新界</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/districts/hkl'; ?>">HONG KONG</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/districts/kln'; ?>">KOWLOON</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/districts/nt'; ?>">NEW TERRITORIES</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -115,15 +115,15 @@
             <div class="container-fluid justify-content-around">
                 <!-- Links -->
                 <ul class="navbar-nav">
-                <li class="nav-item dropdown px-2">
+                <li class="nav-item dropdown px-4">
                     <a class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown" aria-expanded="false" href="#">DISTRICTS</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/districts/hkl'; ?>">HONG KONG 港島</a></li>
-                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/districts/kln'; ?>">KOWLOON 九龍</a></li>
-                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/districts/nt'; ?>">NEW TERRITORIES 新界</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/districts/hkl'; ?>">HONG KONG</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/districts/kln'; ?>">KOWLOON</a></li>
+                        <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/districts/nt'; ?>">NEW TERRITORIES</a></li>
                     </ul>      
                 </li>
-                <li class="nav-item dropdown px-2">
+                <li class="nav-item dropdown px-4">
                     <a class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown" aria-expanded="false" href="#">CUISINE</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/cuisine/japanese'; ?>">JAPANESE</a></li>
@@ -137,7 +137,7 @@
                         <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/cuisine/others'; ?>">OTHERS</a></li>
                     </ul>
                 </li>
-                <li class="nav-item dropdown px-2">
+                <li class="nav-item dropdown px-4">
                     <a class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown" aria-expanded="false" href="#">MICHELIN</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/michelin/one-stars'; ?>">1 STARS</a></li>
@@ -146,7 +146,7 @@
                         <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/michelin/michelin-guide'; ?>">MICHELIN GUIDE</a></li>
                     </ul>
                 </li>
-                <li class="nav-item dropdown px-2">
+                <li class="nav-item dropdown px-4">
                     <a class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown" aria-expanded="false" href="#">TOPICS</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/topics/brunch'; ?>">BRUNCH</a></li>
@@ -159,10 +159,10 @@
                         <li><a class="dropdown-item" href="<?php echo get_site_url().'/category/topics/entertainment'; ?>">ENTERTAINMENT</a></li>
                     </ul>
                 </li>
-                <li class="nav-item px-2">
+                <li class="nav-item px-4">
                     <a class="nav-link text-light" href="<?php echo get_site_url().'/category/topics/travel'; ?>">TRAVEL</a>
                 </li>
-                <li class="nav-item px-2">
+                <li class="nav-item px-4">
                     <a class="nav-link text-light" href="<?php echo get_site_url().'/category/topics/limited-offers'; ?>">LIMITED OFFERS</a>
                 </li>
                 </ul>

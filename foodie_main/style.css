@@ -16,7 +16,8 @@ Tags: blog
 
 body {
     /* overflow-x: hidden; */
-    font-family: 'Bacasime+Antique'
+    /* font-family: 'Bacasime+Antique'*/
+    font-family: 'Arial'
 }
 
 .main-wrapper {
@@ -32,6 +33,14 @@ body {
 
 .nav-item a{
     color: black;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 3px
+}
+
+h1{
+    letter-spacing: 10px
 }
 
 #navbarcontrol:hover {
