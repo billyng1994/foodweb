@@ -39,7 +39,7 @@ body {
     letter-spacing: 3px
 }
 
-h1{
+.main-wrapper h1{
     letter-spacing: 10px
 }
 
@@ -293,10 +293,6 @@ border-radius: 10px;
     color: rgb(255,204,0);
 }
 
-.social-media-icon img{
-    width
-}
-
 /* destop specific*/
 @media screen and (min-width:992px){
     .bandhead{
@@ -359,5 +355,8 @@ border-radius: 10px;
     }
     .thumbnailContainer {
         width: 100% !important;
+    }
+    div.postlist > div.row{
+        --bs-gutter-x: 0;
     }
 }

@@ -89,12 +89,12 @@ require_once __DIR__ . "/posttitle-control.php";
 				$query2->the_post();
 				$categories = get_the_category($query2->post->ID);
 				echo '<div class="container postlist shadow-sm  my-1">    
-				<div class="row">';
+				<div class="row w-100">';
 				echo '<div class="col-5 thumbnailContainer"><a href="'. get_permalink($query2->post->ID).'">'. get_the_post_thumbnail($query2->post->ID). '</a></div>';
 				echo '<div class="col">';
 				echo '<div class="category" style="padding: 0.1rem 0;">'.  '<a href="' . esc_url( get_category_link( $categories[0]->term_id ) ) . '">' .  $categories[0]->name . '</a>' . '</div>';
 				echo '<a href="'. get_permalink($query2->post->ID) .'">';
-				echo print_title(get_the_title( $query2->post->ID ),30, '<h2 style="margin: 5px 0; color: black;">','</h2>') ;
+				echo print_title(get_the_title( $query2->post->ID ),30, '<h2 style="margin: 5px 0; color: black; overflow-wrap: anywhere;">','</h2>') ;
 				echo '</a>';
 				echo '<div class="date" style="padding: 0.1rem 0">'. date('Y-m-d h:i', get_post_timestamp( $query2->post->ID )) .'</div>';
 				echo '<div class="hideinmobile" style="padding: 0.1rem 0">'. get_the_excerpt($query2->post->ID) .'</div>';

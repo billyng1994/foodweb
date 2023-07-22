@@ -149,7 +149,7 @@ setInterval(function () {
     slideIndex++
     if(slideIndex >= 4) slideIndex = 0
     currentSlide(slideIndex)    
-}, 3000);
+}, 5000);
 
 let giveaway = $(".giveaway")
 let giveawayContainer = $("#giveawayContainer")

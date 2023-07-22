@@ -85,12 +85,12 @@ function infinite_scroll() {
         $loop->the_post();
         // your post display code here
         echo '<div class="container postlist shadow-sm my-1">    
-        <div class="row">';
+        <div class="row w-100">';
         echo '<div class="col-5 thumbnailContainer"><a href="'. get_permalink($loop->post->ID) .'">'. get_the_post_thumbnail($loop->post->ID) . '</a></div>';
         echo '<div class="col">';
         echo '<div class="category"  style="padding: 0.1rem 0;">'. get_the_category($loop->post->ID)[0]->name .'</div>';
         echo '<a href="'. get_permalink($loop->post->ID) .'">';
-        echo print_title(get_the_title($loop->post->ID),30, '<h2 style="padding: 5px 0; margin: 5px 0; color: black;">','</h2>') ;
+        echo print_title(get_the_title($loop->post->ID),30, '<h2 style="padding: 5px 0; margin: 5px 0; color: black; overflow-wrap: anywhere;">','</h2>') ;
         echo '</a>';
         //echo '<div style="padding: 0.1rem 0">'. date('Y-m-d h:i', get_post_timestamp( $loop->post->ID )) .'</div>';
         echo '<div class="hideinmobile" style="padding: 0.1rem 0">'. get_the_excerpt($loop->post->ID) .'</div>';
