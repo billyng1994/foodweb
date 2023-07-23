@@ -140,16 +140,16 @@ function currentSlide(n) {
         for (let i = 0; i < gallery.length; i++) {
             gallerycon[i].style.transform = "translateX(-" + (fullGalleryWidth - galleryContainerWidth)/2 +"px)";
             gallery[i].style.transform = "translateX(-" + (fullGalleryWidth - galleryContainerWidth)/2 +"px)";
-            gallery[i].style.transition = "all 0.2s";
-            gallerycon[i].style.transition = "all 0.8s";
+            gallery[i].style.transition = "all 0.1s";
+            gallerycon[i].style.transition = "all 1s";
         }
     } else {
         if (gallery && gallery.length > 0){
             for (let i = 0; i < gallery.length; i++) {
                 gallerycon[i].style.transform = "translateX(-" + minusPosition +"px)";
                 gallery[i].style.transform = "translateX(-" + minusPosition +"px)";
-                gallery[i].style.transition = "all 0.2s";
-                gallerycon[i].style.transition = "all 0.8s";
+                gallery[i].style.transition = "all 0.1s";
+                gallerycon[i].style.transition = "all 1s";
             }
         }
     }
