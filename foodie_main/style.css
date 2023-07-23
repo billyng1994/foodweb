@@ -28,7 +28,8 @@ body {
 }
 
 .logo {
-    max-width: 250px;
+    max-width: 160px;
+    margin: 0.5rem;
 }
 
 .nav-item a{
