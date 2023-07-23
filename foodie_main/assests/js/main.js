@@ -83,6 +83,16 @@ function resizeGallery (ratio){
     }
 }
 
+function stopGalleryLazyLoad(){
+    if(gallery && gallery.length > 0){
+        gallery.forEach(g => {
+            g.setAttribute('data-no-lazy', "1")
+            g.setAttribute('loading', "eager")
+        })
+    }    
+}
+stopGalleryLazyLoad()
+
 function htmlToElement(html) {
     var template = document.createElement('template');
     html = html.trim(); // Never return a text node of whitespace as the result
