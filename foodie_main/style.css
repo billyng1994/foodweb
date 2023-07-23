@@ -235,26 +235,10 @@ background: grey;
 border-radius: 10px;
 }
 
-#giveawayContainer{
-    position:relative;
-    border-bottom: solid rgb(255,204,0);
-    margin-top: 1rem;
-}
-
-#giveawayContainer::before {
-    content: "GIVEAWAY";
-    position: absolute;
-    z-index: 100;
-    /* writing-mode: vertical-lr; */
-    /* right: 0; */
-    font-size: 10vmin;
-    width: 100%;
-    bottom:0;
-    font-weight: bolder;
-    transform: translateY(28%);
-    left: 0;
-    right: 0;
-    text-align: center;
+figure.giveaway{
+    margin: 0;
+    column-gap: 0 !important;
+    row-gap: 0 !important;
 }
 
 #midbanner img{
@@ -313,6 +297,33 @@ border-radius: 10px;
         justify-content: space-around; 
         align-items: center;
     }
+    #giveawayContainer::before {
+        content: "GIVEAWAY";
+        /* position: absolute; */
+        z-index: 100;
+        /* writing-mode: vertical-lr; */
+        /* right: 0; */
+        /* font-size: 10vmin; */
+        font-size: 3vmax;
+        /* width: 100%; */
+        bottom:0;
+        font-weight: bolder;
+        /* transform: translateY(28%); */
+        left: 0;
+        right: 0;
+        text-align: center;
+        padding: 1%;
+        background-color: black;
+        color: rgb(255,204,0);
+        margin: 2%;
+    }
+    #giveawayContainer{
+        position:relative;
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        background-color: rgb(255,204,0);    
+    }
 }
 
 /* mobile specific*/
@@ -359,5 +370,26 @@ border-radius: 10px;
     }
     div.postlist > div.row{
         --bs-gutter-x: 0;
+    }
+    #giveawayContainer::before {
+        content: "GIVEAWAY";
+        z-index: 100;
+        font-size: 4vmax;
+        bottom:0;
+        font-weight: bolder;
+        left: 0;
+        right: 0;
+        text-align: center;
+        padding: 1%;
+        color: black;
+        border-bottom: solid 0.3rem rgb(255,204,0);
+    }
+    #giveawayContainer{
+        position:relative;
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        flex-direction: column;    
     }
 }
