@@ -83,20 +83,22 @@ function infinite_scroll() {
     $loop = new WP_Query( $args );
     while( $loop->have_posts() ) {
         $loop->the_post();
+        $currentPostId = $loop->post->ID;
+        if(in_array($currentPostId, $_SESSION['showposts'])) continue;
         // your post display code here
-        echo '<div class="container postlist shadow-sm my-1">    
+        echo '<div class="container postlist shadow-sm my-1">   
         <div class="row w-100">';
-        echo '<div class="col-5 thumbnailContainer"><a href="'. get_permalink($loop->post->ID) .'">'. get_the_post_thumbnail($loop->post->ID) . '</a></div>';
+        echo '<div class="col-5 thumbnailContainer"><a href="'. get_permalink($currentPostId) .'">'. get_the_post_thumbnail($currentPostId) . '</a></div>';
         echo '<div class="col">';
-        echo '<div class="category"  style="padding: 0.1rem 0;">'. get_the_category($loop->post->ID)[0]->name .'</div>';
-        echo '<a href="'. get_permalink($loop->post->ID) .'">';
-        echo print_title(get_the_title($loop->post->ID),30, '<h2 style="padding: 5px 0; margin: 5px 0; color: black; overflow-wrap: anywhere;">','</h2>') ;
+        echo '<div class="category"  style="padding: 0.1rem 0;">'. get_the_category($currentPostId)[0]->name .'</div>';
+        echo '<a href="'. get_permalink($currentPostId) .'">';
+        echo print_title(get_the_title($currentPostId),80, '<h2 style="padding: 5px 0; margin: 5px 0; color: black; overflow-wrap: anywhere;"><b>','</b></h2>') ;
         echo '</a>';
-        //echo '<div style="padding: 0.1rem 0">'. date('Y-m-d h:i', get_post_timestamp( $loop->post->ID )) .'</div>';
-        echo '<div class="hideinmobile" style="padding: 0.1rem 0">'. get_the_excerpt($loop->post->ID) .'</div>';
+        echo '<div class="date"  style="padding: 0.1rem 0">'. date('Y-m-d h:i', get_post_timestamp( $currentPostId )) .'</div>';
+        echo '<div class="hideinmobile" style="padding: 0.1rem 0">'. get_the_excerpt($currentPostId) .'</div>';
         echo '</div></div>
         </div>';
-
+        $_SESSION['showposts'][] = $currentPostId;
     }
     wp_reset_postdata();
     exit;
@@ -108,6 +110,24 @@ function wpdocs_excerpt_more( $more ) {
     return '<a href="'.get_the_permalink().'" rel="nofollow">...Read More</a>';
 }
 add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
+
+function mytheme_custom_excerpt_length( $length ) {
+    global $post;
+    //check if its chinese character input
+    $chinese_output = preg_match_all("/\p{Han}+/u", $post->post_content, $matches);
+    if($chinese_output) return 10;
+    else  return 50;
+}
+add_filter( 'excerpt_length', 'mytheme_custom_excerpt_length', 999 );
+
+function wp_init_session() {
+    if ( ! session_id() ) {
+        session_start();
+    }
+}
+// Start session on init hook.
+add_action( 'init', 'wp_init_session' );
+    
 
 // if you create category then change the permerlink structure, this will help redirect
 // function t5_redirect_to_category( $template )

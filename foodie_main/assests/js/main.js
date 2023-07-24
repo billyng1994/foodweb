@@ -54,10 +54,11 @@ let gallery = document.querySelectorAll(".gallery img")
 let gallerycon = document.querySelectorAll(".gallery figure")
 let threshold = 330
 let currentImgSize = threshold
+let sw = $(window).width()
 function resizeGallery (ratio){
     if (gallery && gallery.length > 0){
+        sw = $(window).width()
         galleryImgCount = gallery.length
-        let sw = $(window).width()
         if(sw*ratio <= threshold) {
             for (let i = 0; i < gallery.length; i++) {
                 currentImgSize = threshold
@@ -102,6 +103,7 @@ function htmlToElement(html) {
 
 resizeGallery(0.3);
 window.addEventListener('resize', e => {
+    sw = $(window).width()
     resizeGallery(0.3);
     currentSlide(0)
     if ($('.collapse').is(':visible')) {
@@ -173,4 +175,20 @@ let midbannerContainer = $("#midbanner")
 if(midbanner.length > 0 && midbannerContainer){
     let y = midbanner.detach();
     y.appendTo(midbannerContainer)
+}
+
+let latestfirst = document.getElementById('latestfirst')
+let latestfirsttopic = document.getElementById('latestfirsttopic')
+let latestfirsttopicimg = document.getElementById('latestfirsttopicimg')
+if(latestfirst && latestfirsttopic){
+    latestfirst.addEventListener('mouseover', (e) => {
+        if(sw > 980)
+            latestfirsttopic.style.opacity = "100%";
+        latestfirsttopicimg.style.filter = "brightness(50%)"
+    })
+    latestfirst.addEventListener('mouseout', (e) => {
+        if(sw > 980)
+            latestfirsttopic.style.opacity = "0%";
+        latestfirsttopicimg.style.filter = "brightness(100%)"
+    })
 }

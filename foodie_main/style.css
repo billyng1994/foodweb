@@ -280,6 +280,9 @@ figure.giveaway{
 
 /* destop specific*/
 @media screen and (min-width:992px){
+    .showinmobile-block{
+        display: none;
+    }
     .bandhead{
         text-align: start;
     }   
@@ -296,6 +299,9 @@ figure.giveaway{
         display:flex; 
         justify-content: space-around; 
         align-items: center;
+    }
+    .postlist h2{
+        font-size:1.5vmax;
     }
     #giveawayContainer::before {
         content: "GIVEAWAY";
@@ -316,6 +322,7 @@ figure.giveaway{
         background-color: black;
         color: rgb(255,204,0);
         margin: 2%;
+        letter-spacing: 4px;
     }
     #giveawayContainer{
         position:relative;
@@ -359,11 +366,17 @@ figure.giveaway{
     div.hottopicpostscontainer {
         width: 100% !important;
     }
+    .latesttitle {
+        font-size: 1.8vmax !important;
+    }
     .stitle{
         margin-bottom: 1rem;  
     }
     .hideinmobile{
         display: none;
+    }
+    .showinmobile-block{
+        display: block;
     }
     .thumbnailContainer {
         width: 100% !important;
@@ -383,6 +396,7 @@ figure.giveaway{
         padding: 1%;
         color: black;
         border-bottom: solid 0.3rem rgb(255,204,0);
+        letter-spacing: 4px;
     }
     #giveawayContainer{
         position:relative;
