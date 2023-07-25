@@ -32,21 +32,23 @@ require_once __DIR__ . "/posttitle-control.php";
 				$query->the_post();
 				$categories = get_the_category($query->post->ID);
 				if($firstHotpost){
-					echo '<div id="latestfirst" class="hottopicpostscontainer" style="width: 65%;">';
+					echo '<div id="latestfirst" class="hottopicpostscontainer" style="width: 60%;">';
 					echo '<div class="category" style="padding: 0.1rem 0;">'. '<a href="' . esc_url( get_category_link( $categories[0]->term_id ) ) . '">' . $categories[0]->name . '</a>' .'</div>';
 					echo '<a href="'. get_permalink($query->post->ID) .'" style="position: relative;">'.get_the_post_thumbnail( $query->post->ID, 'thumbnail', array( 'style' => 'max-width:100%;width:100%;height:auto;', "id"=>"latestfirsttopicimg")  ) ;
-					echo print_title(get_the_title( $query->post->ID ), 100, '<h4 id="latestfirsttopic" style="opacity: 0%; position:absolute; font-size:3vmin; top:0; bottom:0;padding: 2%; color: white"><b>', '</b></h4>');					
-					echo '</a></div>';
-					echo '<a href="'. get_permalink($query->post->ID) .'" style="text-decoration: none;">';
-					echo print_title(get_the_title( $query->post->ID ), 100, '<h4 class="showinmobile-block" id="latestfirsttopic" style="diaplay:none; font-size:1.8vmax; top:0; bottom:0;padding: 2%; color: black"><b>', '</b></h4>');
+					//echo print_title(get_the_title( $query->post->ID ), 100, '<h4 id="latestfirsttopic" style="opacity: 0%; position:absolute; font-size:3vmin; top:0; bottom:0;padding: 2%; color: white"><b>', '</b></h4>');					
 					echo '</a>';
-					echo '<div class="hottopicpostscontainer" style="display: flex; width: 33%; flex-direction: column">';
+					echo '<a href="'. get_permalink($query->post->ID) .'" style="text-decoration: none; color: black">';
+					//echo print_title(get_the_title( $query->post->ID ), 100, '<h4 class="showinmobile-block" id="latestfirsttopic" style="diaplay:none; font-size:1.8vmax; top:0; bottom:0;padding: 2%; color: black"><b>', '</b></h4>');
+					echo print_title(get_the_title( $query->post->ID ), 100, '<h4 id="latestfirsttopictitle" style="top:0; bottom:0;padding: 2% 2% 0 2%; color: black"><b>', '</b></h4>');
+					echo '<div class="hideinmobile" style="text-decoration: none;padding: 0 2%; color: black;">' . get_the_excerpt($query->post->ID) . '</div>';
+					echo '</a></div>';
+					echo '<div class="hottopicpostscontainer" style="display: flex; width: 45%; flex-direction: column">';
 					$firstHotpost = false;
 				} else {
 
 					//echo '<div class="col d-flex">';
 					echo '<div style="display:flex; align-items: center; text-align: left; padding: 0.1rem;  margin:2%;  border-bottom: 1px solid #eee; max-height: 30vmax; min-height: 6vmax;">';
-					echo '<a style="width:45%; height:45%; min-width: 45%; text-decoration: none" href="'. get_permalink($query->post->ID) .'">';
+					echo '<a style="width:40%; height:45%; min-width: 45%; text-decoration: none" href="'. get_permalink($query->post->ID) .'">';
 					//echo get_the_post_thumbnail( $query->post->ID, 'thumbnail', array( 'style' => 'width: 45%; height: 45%;' )  ) ;
 					echo get_the_post_thumbnail( $query->post->ID, 'thumbnail', array( 'style' => 'width: 100%; height: 100%;' )  ) ;
 					echo '</a>';
@@ -101,7 +103,7 @@ require_once __DIR__ . "/posttitle-control.php";
 				echo '<div class="col">';
 				echo '<div class="category" style="padding: 0.1rem 0;">'.  '<a href="' . esc_url( get_category_link( $categories[0]->term_id ) ) . '">' . $categories[0]->name . '</a>' . '</div>';
 				echo '<a href="'. get_permalink($currentPostId) .'">';
-				echo print_title(get_the_title($currentPostId),80, '<h2 style="margin: 5px 0; color: black; overflow-wrap: anywhere;"><b>','</b></h2>') ;
+				echo print_title(get_the_title($currentPostId),120, '<h2 style="margin: 5px 0; color: black; overflow-wrap: anywhere;"><b>','</b></h2>') ;
 				echo '</a>';
 				echo '<div class="date" style="padding: 0.1rem 0">'. date('Y-m-d h:i', get_post_timestamp($currentPostId)) .'</div>';
 				echo '<div class="hideinmobile" style="padding: 0.1rem 0">'. get_the_excerpt($currentPostId) .'</div>';
@@ -110,6 +112,16 @@ require_once __DIR__ . "/posttitle-control.php";
 				$_SESSION['showposts'][] = $currentPostId;
 			}
 			echo '</div>';
+			echo '
+			<div style="display: flex; flex-wrap: wrap; margin: 1%;">
+			<button style="margin: 0.3rem;border-radius: 20px;" type="button" class="btn btn-outline-secondary" onclick="window.location.href=\''. get_home_url() . '/category/districts' .'\'">DISTRICTS</button>
+			<button style="margin: 0.3rem;border-radius: 20px;" type="button" class="btn btn-outline-secondary" onclick="window.location.href=\''. get_home_url() . '/category/cuisine' .'\'">CUISINE</button>
+			<button style="margin: 0.3rem;border-radius: 20px;" type="button" class="btn btn-outline-secondary" onclick="window.location.href=\''. get_home_url() . '/category/michelin' .'\'">MICHELIN</button>
+			<button style="margin: 0.3rem;border-radius: 20px;" type="button" class="btn btn-outline-secondary" onclick="window.location.href=\''. get_home_url() . '/category/topics' .'\'">TOPICS</button>
+			<button style="margin: 0.3rem;border-radius: 20px;" type="button" class="btn btn-outline-secondary" onclick="window.location.href=\''. get_home_url() . '/category/travel' .'\'">TRAVEL</button>
+			<button style="margin: 0.3rem;border-radius: 20px;" type="button" class="btn btn-outline-secondary" onclick="window.location.href=\''. get_home_url() . '/category/limited-offers' .'\'">LIMITED OFFERS</button>
+			</div>
+			';
 		?>
 	</article>  
 	<hr>

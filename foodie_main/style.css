@@ -278,6 +278,16 @@ figure.giveaway{
     color: rgb(255,204,0);
 }
 
+.hottopicpostscontainer b:hover,.hottopicpostscontainer a:hover, .postlist b:hover, .postlist a:hover{
+    color: gray;
+    transition: all 0.5s;
+}
+
+.postlist h2{
+    /* font-size:1.5vmax; */
+    font-size: 1.5rem;
+}
+
 /* destop specific*/
 @media screen and (min-width:992px){
     .showinmobile-block{
@@ -299,9 +309,6 @@ figure.giveaway{
         display:flex; 
         justify-content: space-around; 
         align-items: center;
-    }
-    .postlist h2{
-        font-size:1.5vmax;
     }
     #giveawayContainer::before {
         content: "GIVEAWAY";

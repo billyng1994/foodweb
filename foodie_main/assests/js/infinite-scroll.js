@@ -4,12 +4,11 @@ jQuery(function($){
 
     $(window).scroll(function(){
         if( canBeLoaded && $(document).scrollTop() > ($(document).height() - $(window).height() - bottomOffset) ) {
-            console.log('cannot be load')
             canBeLoaded = false;
             var ajaxUrl =  $('.infinite-scroll-wrap').data('ajax-url');
             var page = parseInt( $('.infinite-scroll-wrap').attr('data-next-page') );
             var maxPages = parseInt( $('.infinite-scroll-wrap').attr('data-max-pages') );
-            if( page <= maxPages ) {
+            if( page <= maxPages && page <= 5 ) {
                 $('.infinite-scroll-wrap').addClass('loading');
                 $.ajax({
                     url: ajaxUrl,

@@ -177,18 +177,20 @@ if(midbanner.length > 0 && midbannerContainer){
     y.appendTo(midbannerContainer)
 }
 
-let latestfirst = document.getElementById('latestfirst')
-let latestfirsttopic = document.getElementById('latestfirsttopic')
-let latestfirsttopicimg = document.getElementById('latestfirsttopicimg')
-if(latestfirst && latestfirsttopic){
-    latestfirst.addEventListener('mouseover', (e) => {
-        if(sw > 980)
-            latestfirsttopic.style.opacity = "100%";
-        latestfirsttopicimg.style.filter = "brightness(50%)"
-    })
-    latestfirst.addEventListener('mouseout', (e) => {
-        if(sw > 980)
-            latestfirsttopic.style.opacity = "0%";
-        latestfirsttopicimg.style.filter = "brightness(100%)"
-    })
-}
+// let latestfirst = document.getElementById('latestfirst')
+// let latestfirsttopic = document.getElementById('latestfirsttopic')
+// let latestfirsttopicimg = document.getElementById('latestfirsttopicimg')
+// if(latestfirst && latestfirsttopic && latestfirsttopictitle){
+//     latestfirst.addEventListener('mouseover', (e) => {
+//         if(sw > 980){
+//             latestfirsttopic.style.opacity = "100%";
+//         }
+//         latestfirsttopicimg.style.filter = "brightness(50%)"
+//     })
+//     latestfirst.addEventListener('mouseout', (e) => {
+//         if(sw > 980){
+//             latestfirsttopic.style.opacity = "0%";
+//         }
+//         latestfirsttopicimg.style.filter = "brightness(100%)"
+//     })
+// }

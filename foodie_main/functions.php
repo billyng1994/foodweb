@@ -63,8 +63,12 @@ add_action("wp_enqueue_scripts", "foodie_register_scripts");
 function infinite_scroll() {
     $paged = $_POST['page'];
 
+    wp_reset_postdata();
+    $args = array( 'post_type' => 'post', 'post_status' => 'publish', 'orderby' => 'comment_count', 'order' => 'DESC', 'posts_per_page' => 5, 'paged' => $paged );
+    $loop = new WP_Query( $args );
+
     // show only 5 pages, then give a category page menu
-    if($paged > 5) {
+    if($paged > 5 || $loop->post_count <= 0 ) {
         echo '
         <div style="display: flex; flex-wrap: wrap; margin: 1%;">
         <button style="margin: 0.3rem;border-radius: 20px;" type="button" class="btn btn-outline-secondary" onclick="window.location.href=\''. get_home_url() . '/category/districts' .'\'">DISTRICTS</button>
@@ -78,9 +82,6 @@ function infinite_scroll() {
         exit;
     }
 
-    wp_reset_postdata();
-    $args = array( 'post_type' => 'post', 'post_status' => 'publish', 'orderby' => 'comment_count', 'order' => 'DESC', 'posts_per_page' => 5, 'paged' => $paged );
-    $loop = new WP_Query( $args );
     while( $loop->have_posts() ) {
         $loop->the_post();
         $currentPostId = $loop->post->ID;
@@ -90,9 +91,9 @@ function infinite_scroll() {
         <div class="row w-100">';
         echo '<div class="col-5 thumbnailContainer"><a href="'. get_permalink($currentPostId) .'">'. get_the_post_thumbnail($currentPostId) . '</a></div>';
         echo '<div class="col">';
-        echo '<div class="category"  style="padding: 0.1rem 0;">'. get_the_category($currentPostId)[0]->name .'</div>';
+        echo '<div class="category"  style="padding: 0.1rem 0;">'.  '<a href="' . esc_url( get_category_link( get_the_category($currentPostId)[0]->term_id ) ) . '">' . get_the_category($currentPostId)[0]->name .'</a></div>';
         echo '<a href="'. get_permalink($currentPostId) .'">';
-        echo print_title(get_the_title($currentPostId),80, '<h2 style="padding: 5px 0; margin: 5px 0; color: black; overflow-wrap: anywhere;"><b>','</b></h2>') ;
+        echo print_title(get_the_title($currentPostId),120, '<h2 style="padding: 5px 0; margin: 5px 0; color: black; overflow-wrap: anywhere;"><b>','</b></h2>') ;
         echo '</a>';
         echo '<div class="date"  style="padding: 0.1rem 0">'. date('Y-m-d h:i', get_post_timestamp( $currentPostId )) .'</div>';
         echo '<div class="hideinmobile" style="padding: 0.1rem 0">'. get_the_excerpt($currentPostId) .'</div>';
@@ -107,7 +108,7 @@ add_action( 'wp_ajax_infinite_scroll', 'infinite_scroll' );
 add_action( 'wp_ajax_nopriv_infinite_scroll', 'infinite_scroll' );
 
 function wpdocs_excerpt_more( $more ) {
-    return '<a href="'.get_the_permalink().'" rel="nofollow">...Read More</a>';
+    return '<a href="'.get_the_permalink().'" rel="nofollow" style="text-decoration: none;">...Read More</a>';
 }
 add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
 
@@ -115,8 +116,8 @@ function mytheme_custom_excerpt_length( $length ) {
     global $post;
     //check if its chinese character input
     $chinese_output = preg_match_all("/\p{Han}+/u", $post->post_content, $matches);
-    if($chinese_output) return 10;
-    else  return 50;
+    if($chinese_output) return 4;
+    else return 50;
 }
 add_filter( 'excerpt_length', 'mytheme_custom_excerpt_length', 999 );
 

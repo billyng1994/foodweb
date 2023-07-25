@@ -41,7 +41,7 @@
             echo '<div thumbnailContainer"><a href="'. get_permalink($query2->post->ID).'">'. get_the_post_thumbnail($query2->post->ID). '</a></div>';
             echo '<div style="overflow-wrap: anywhere;">';
             echo '<a href="'. get_permalink($query2->post->ID) .'">';
-            echo  print_title(get_the_title( $query2->post->ID ),30, '<h4 style="padding: 5px 0; margin: 5px 0; color: black">','</h4>') ;
+            echo  print_title(get_the_title( $query2->post->ID ),120, '<h4 style="padding: 5px 0; margin: 5px 0; color: black">','</h4>') ;
             echo '</a>';
             echo '<div class="category" style="padding: 0.1rem 0">'. get_the_category($query2->post->ID)[0]->name .'</div>';
             echo '<div class="date" style="padding: 0.1rem 0">'. date('Y-m-d h:i', get_post_timestamp( $query2->post->ID )) .'</div>';
