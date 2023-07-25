@@ -17,3 +17,8 @@ function print_title($title,$text_threshold = 25, $before=false, $after=false){
     echo $processed_title;
 
 };
+
+function remove_html($word){
+    $processed_word = strip_tags($word);
+    echo $processed_word;
+};

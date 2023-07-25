@@ -340,6 +340,10 @@ figure.giveaway{
     }
 }
 
+.latesttitle {
+    font-size: 1.1rem !important;
+}
+
 /* mobile specific*/
 @media screen and (max-width:992px){
     .navbar .container-fluid, .navbar-expand-lg .navbar-collapse, .navbar-expand-lg .navbar-nav {
@@ -372,9 +376,6 @@ figure.giveaway{
     }
     div.hottopicpostscontainer {
         width: 100% !important;
-    }
-    .latesttitle {
-        font-size: 1.8vmax !important;
     }
     .stitle{
         margin-bottom: 1rem;  
@@ -412,5 +413,11 @@ figure.giveaway{
         align-items: center;
         flex-wrap: nowrap;
         flex-direction: column;    
+    }
+    .latesttitle {
+        font-size: 2.2vw !important;
+    }
+    .latesttitledate {
+        font-size: 1.5vw !important;
     }
 }

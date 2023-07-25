@@ -90,7 +90,7 @@ function stopGalleryLazyLoad(){
             g.setAttribute('data-no-lazy', "1")
             g.setAttribute('loading', "eager")
         })
-    }    
+    }
 }
 stopGalleryLazyLoad()
 
@@ -114,6 +114,7 @@ window.addEventListener('resize', e => {
         bandhead[0].style.transform = "translateX(0%)";
         bandhead[0].style.transition = "all 1s";
     }
+    removeBrTagInMobileTopic();
 })
 let galleryContainer = document.querySelectorAll(".gallery")
 let galleryBtnContainer = document.createElement("div");
@@ -160,7 +161,7 @@ function currentSlide(n) {
 setInterval(function () {
     slideIndex++
     if(slideIndex >= 4) slideIndex = 0
-    currentSlide(slideIndex)    
+    currentSlide(slideIndex)
 }, 5000);
 
 let giveaway = $(".giveaway")
@@ -175,6 +176,27 @@ let midbannerContainer = $("#midbanner")
 if(midbanner.length > 0 && midbannerContainer){
     let y = midbanner.detach();
     y.appendTo(midbannerContainer)
+}
+
+function removeTags(str) {
+    if ((str===null) || (str===''))
+        return false;
+    else
+        str = str.toString();
+
+    // Regular expression to identify HTML tags in
+    // the input string. Replacing the identified
+    // HTML tag with a null string.
+    return str.replace( /(<([^>]+)>)/ig, '');
+}
+
+function removeBrTagInMobileTopic(){
+    if (sw > 980) return
+    let articletitle = document.querySelectorAll(".article-title")
+    if(articletitle.length > 0){
+        const textWithoutTags = articletitle[0].innerHTML.replace(/(<([^>]+)>)/gi, '');
+        articletitle[0].innerHTML = textWithoutTags;
+    }
 }
 
 // let latestfirst = document.getElementById('latestfirst')

@@ -39,9 +39,11 @@ require_once __DIR__ . "/posttitle-control.php";
 					echo '</a>';
 					echo '<a href="'. get_permalink($query->post->ID) .'" style="text-decoration: none; color: black">';
 					//echo print_title(get_the_title( $query->post->ID ), 100, '<h4 class="showinmobile-block" id="latestfirsttopic" style="diaplay:none; font-size:1.8vmax; top:0; bottom:0;padding: 2%; color: black"><b>', '</b></h4>');
-					echo print_title(get_the_title( $query->post->ID ), 100, '<h4 id="latestfirsttopictitle" style="top:0; bottom:0;padding: 2% 2% 0 2%; color: black"><b>', '</b></h4>');
-					echo '<div class="hideinmobile" style="text-decoration: none;padding: 0 2%; color: black;">' . get_the_excerpt($query->post->ID) . '</div>';
-					echo '</a></div>';
+					echo print_title(get_the_title( $query->post->ID ), 100, '<h4 id="latestfirsttopictitle" style="top:0; bottom:0;padding: 2% 2% 0 0; color: black"><b>', '</b></h4>');
+					echo '<div class="hideinmobile" style="text-decoration: none;padding: 0; color: black;">' . get_the_excerpt($query->post->ID) . '</div>';
+					echo '</a>';
+					echo '<div class="date" style="padding-top: 8px; font-size: 13px;">'. date('Y-m-d h:i', get_post_timestamp($query->post->ID)) .'</div>';
+					echo '</div>';
 					echo '<div class="hottopicpostscontainer" style="display: flex; width: 45%; flex-direction: column">';
 					$firstHotpost = false;
 				} else {
@@ -54,7 +56,7 @@ require_once __DIR__ . "/posttitle-control.php";
 					echo '</a>';
 					echo '<div style="padding-left: 1rem; overflow-wrap:anywhere;">';
 					echo '<div class="category" style="padding: 0.1rem 0;">'. '<a href="' . esc_url( get_category_link( $categories[0]->term_id ) ) . '">' . $categories[0]->name . '</a>' .'</div>';
-					echo '<a style="text-decoration: none" href="'. get_permalink($query->post->ID) .'"><h4 class="latesttitle" style="color:black; font-size:1.5vmin"><b>';
+					echo '<a style="text-decoration: none" href="'. get_permalink($query->post->ID) .'"><h4 class="latesttitle" style="color:black;"><b>';
 
 					// $text_threshold = 25;
 					// if(strlen(get_the_title( $query->post->ID )) >= $text_threshold ){
@@ -65,6 +67,7 @@ require_once __DIR__ . "/posttitle-control.php";
 					print_title(get_the_title( $query->post->ID ), 70);
 
 					echo '</b></h4></a>';
+					echo '<div class="date latesttitledate" style="padding: 0.3rem 0">'. date('Y-m-d h:i', get_post_timestamp($query->post->ID)) .'</div>';
 					echo '</div>';
 					echo '</div>';
 					$count_small_posts++;

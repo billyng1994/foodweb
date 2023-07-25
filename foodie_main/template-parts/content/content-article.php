@@ -5,7 +5,7 @@
     <header class="content-header">
         <div class="meta mb-3">
             <div class="category"><?php the_category('/ '); ?></div>
-            <h1 style="overflow-wrap: anywhere"><?php echo the_title(); ?></h1>
+            <h2 class="article-title" style="overflow-wrap: anywhere"><?php the_title(); ?></h2>
             <hr>
             <span class="date" style="padding-right:2%;"><?php the_date() ?></span>
             <?php 
