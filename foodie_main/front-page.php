@@ -31,6 +31,7 @@ require_once __DIR__ . "/posttitle-control.php";
 			while ( $query->have_posts() ) {
 				$query->the_post();
 				$categories = get_the_category($query->post->ID);
+				$subheading = get_post_custom_values('subheading') ? get_post_custom_values('subheading')[0]:'';
 				if($firstHotpost){
 					echo '<div id="latestfirst" class="hottopicpostscontainer" style="width: 60%;">';
 					echo '<div class="category" style="padding: 0.1rem 0;">'. '<a href="' . esc_url( get_category_link( $categories[0]->term_id ) ) . '">' . $categories[0]->name . '</a>' .'</div>';
@@ -39,10 +40,11 @@ require_once __DIR__ . "/posttitle-control.php";
 					echo '</a>';
 					echo '<a href="'. get_permalink($query->post->ID) .'" style="text-decoration: none; color: black">';
 					//echo print_title(get_the_title( $query->post->ID ), 100, '<h4 class="showinmobile-block" id="latestfirsttopic" style="diaplay:none; font-size:1.8vmax; top:0; bottom:0;padding: 2%; color: black"><b>', '</b></h4>');
-					echo print_title(get_the_title( $query->post->ID ), 100, '<h4 id="latestfirsttopictitle" style="top:0; bottom:0;padding: 2% 2% 0 0; color: black"><b>', '</b></h4>');
+					echo print_title(get_the_title( $query->post->ID ), 100, '<h4 id="latestfirsttopictitle" style="top:0; bottom:0;padding: 2% 2% 0 0; color: black; margin-bottom:0.1rem;"><b>', '</b></h4>');
+					echo print_title($subheading, 120, '<h5 class="subheading">', '</h5>') ;
 					echo '<div class="hideinmobile" style="text-decoration: none;padding: 0; color: black;">' . get_the_excerpt($query->post->ID) . '</div>';
 					echo '</a>';
-					echo '<div class="date" style="padding-top: 8px; font-size: 13px;">'. date('Y-m-d h:i', get_post_timestamp($query->post->ID)) .'</div>';
+					echo '<div class="date latesttitledate" style="padding: 0.3rem 0">'. date('Y-m-d h:i', get_post_timestamp($query->post->ID)) .'</div>';
 					echo '</div>';
 					echo '<div class="hottopicpostscontainer" style="display: flex; width: 45%; flex-direction: column">';
 					$firstHotpost = false;
@@ -56,7 +58,7 @@ require_once __DIR__ . "/posttitle-control.php";
 					echo '</a>';
 					echo '<div style="padding-left: 1rem; overflow-wrap:anywhere;">';
 					echo '<div class="category" style="padding: 0.1rem 0;">'. '<a href="' . esc_url( get_category_link( $categories[0]->term_id ) ) . '">' . $categories[0]->name . '</a>' .'</div>';
-					echo '<a style="text-decoration: none" href="'. get_permalink($query->post->ID) .'"><h4 class="latesttitle" style="color:black;"><b>';
+					echo '<a style="text-decoration: none" href="'. get_permalink($query->post->ID) .'"><h4 class="latesttitle" style="color:black;margin-bottom:0.1rem;"><b>';
 
 					// $text_threshold = 25;
 					// if(strlen(get_the_title( $query->post->ID )) >= $text_threshold ){
@@ -66,7 +68,9 @@ require_once __DIR__ . "/posttitle-control.php";
 					// }
 					print_title(get_the_title( $query->post->ID ), 70);
 
-					echo '</b></h4></a>';
+					echo '</b></h4>';
+					echo print_title($subheading, 120,'<h5 class="subheading latesttitle" style="margin-bottom:0.2rem;">','</h5>');
+					echo '</a>';
 					echo '<div class="date latesttitledate" style="padding: 0.3rem 0">'. date('Y-m-d h:i', get_post_timestamp($query->post->ID)) .'</div>';
 					echo '</div>';
 					echo '</div>';
@@ -96,17 +100,19 @@ require_once __DIR__ . "/posttitle-control.php";
 			unset($_SESSION['showposts']);
 			$_SESSION['showposts'] = array();
 			while ( $query2->have_posts() ) {
-				$query2->the_post();
+				$query2->the_post();				
 				$currentPostId = $query2->post->ID;
 				if(in_array($currentPostId, $_SESSION['showposts'])) continue;
 				$categories = get_the_category($currentPostId);
+				$subheading = get_post_custom_values('subheading') ? get_post_custom_values('subheading')[0]:'';
 				echo '<div class="container postlist shadow-sm  my-1">    
 				<div class="row w-100">';
 				echo '<div class="col-5 thumbnailContainer"><a href="'. get_permalink($currentPostId).'">'. get_the_post_thumbnail($currentPostId). '</a></div>';
 				echo '<div class="col">';
 				echo '<div class="category" style="padding: 0.1rem 0;">'.  '<a href="' . esc_url( get_category_link( $categories[0]->term_id ) ) . '">' . $categories[0]->name . '</a>' . '</div>';
 				echo '<a href="'. get_permalink($currentPostId) .'">';
-				echo print_title(get_the_title($currentPostId),120, '<h2 style="margin: 5px 0; color: black; overflow-wrap: anywhere;"><b>','</b></h2>') ;
+				echo print_title(get_the_title($currentPostId),120, '<h2 style="margin: 5px 0; color: black; overflow-wrap: anywhere; margin-bottom:0.1rem;"><b>','</b></h2>') ;
+				echo print_title($subheading, 120, '<h3 class="subheading">','</h3>');
 				echo '</a>';
 				echo '<div class="date" style="padding: 0.1rem 0">'. date('Y-m-d h:i', get_post_timestamp($currentPostId)) .'</div>';
 				echo '<div class="hideinmobile" style="padding: 0.1rem 0">'. get_the_excerpt($currentPostId) .'</div>';

@@ -32,6 +32,10 @@ body {
     margin: 0.5rem;
 }
 
+html :where(div[class*=wp-caption]){
+    width: 100% !important;
+}
+
 .nav-item a{
     color: black;
     font-size: 13px;
@@ -78,7 +82,7 @@ body {
 }
 
 .postlist a {
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 .postlist img {
@@ -122,14 +126,19 @@ body {
     color: rgba(0,0,0,.4);
     /* color:black; */
 }
+
 .category a{
     text-decoration: none;
     color: rgba(0,0,0,.4);
 }
+
 .category a:hover{
     text-decoration: underline;
 }
 
+.subheading{
+    color: grey;
+}
 
 .gallery{
     display:flex;
@@ -279,13 +288,18 @@ figure.giveaway{
 }
 
 .hottopicpostscontainer b:hover,.hottopicpostscontainer a:hover, .postlist b:hover, .postlist a:hover{
-    color: gray;
+    color: darkgray;
     transition: all 0.5s;
 }
 
 .postlist h2{
     /* font-size:1.5vmax; */
     font-size: 1.5rem;
+}
+
+.postlist h3{
+    /* font-size:1.5vmax; */
+    font-size: 1.3rem;
 }
 
 /* destop specific*/
@@ -338,10 +352,13 @@ figure.giveaway{
         align-items: center;
         background-color: rgb(255,204,0);    
     }
-}
+    h4.latesttitle{
+        font-size: 1.1rem !important;
+    }
 
-.latesttitle {
-    font-size: 1.1rem !important;
+    h5.latesttitle{
+        font-size: 1rem !important;
+    }
 }
 
 /* mobile specific*/
@@ -414,10 +431,16 @@ figure.giveaway{
         flex-wrap: nowrap;
         flex-direction: column;    
     }
-    .latesttitle {
-        font-size: 2.2vw !important;
+    h4.latesttitle{
+        font-size: 2vmax !important;
+    }
+    h5.latesttitle{
+        font-size: 1.8vmax !important;
     }
     .latesttitledate {
         font-size: 1.5vw !important;
+    }
+    .category {
+        font-size: 12px;
     }
 }

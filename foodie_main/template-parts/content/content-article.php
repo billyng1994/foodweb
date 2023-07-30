@@ -5,7 +5,11 @@
     <header class="content-header">
         <div class="meta mb-3">
             <div class="category"><?php the_category('/ '); ?></div>
-            <h2 class="article-title" style="overflow-wrap: anywhere"><?php the_title(); ?></h2>
+            <h3 class="article-title" style="overflow-wrap: anywhere"><?php the_title(); ?></h3>
+            <?php
+            $subheading = get_post_custom_values('subheading') ? get_post_custom_values('subheading')[0]:'';
+            echo '<h4 class="subheading">' . $subheading . '</h4>';
+            ?>
             <hr>
             <span class="date" style="padding-right:2%;"><?php the_date() ?></span>
             <?php 
@@ -35,13 +39,15 @@
         $query2 = new WP_Query( array( 'post_type' => 'post', 'post_status' => 'publish','orderby' => 'comment_count', 'order' => 'DESC', 'posts_per_page' => 3 ) );
         while ( $query2->have_posts() ) {
             $query2->the_post();
+            $subheading = get_post_custom_values('subheading', $query2->post->ID) ? get_post_custom_values('subheading', $query2->post->ID)[0]:'';
 
             echo '<div class="container postlist" style="border:none">    
             <div  style="width:-webkit-fill-available;">';
             echo '<div thumbnailContainer"><a href="'. get_permalink($query2->post->ID).'">'. get_the_post_thumbnail($query2->post->ID). '</a></div>';
             echo '<div style="overflow-wrap: anywhere;">';
             echo '<a href="'. get_permalink($query2->post->ID) .'">';
-            echo  print_title(get_the_title( $query2->post->ID ),120, '<h4 style="padding: 5px 0; margin: 5px 0; color: black">','</h4>') ;
+            echo  print_title(get_the_title( $query2->post->ID ),120, '<h4 style="padding: 5px 0 0.1rem 0; margin: 5px 0 0.1rem 0; color: black";>','</h4>') ;
+            print_title($subheading, 120, '<h5 class="subheading">', '</h5>');
             echo '</a>';
             echo '<div class="category" style="padding: 0.1rem 0">'. get_the_category($query2->post->ID)[0]->name .'</div>';
             echo '<div class="date" style="padding: 0.1rem 0">'. date('Y-m-d h:i', get_post_timestamp( $query2->post->ID )) .'</div>';
