@@ -5,10 +5,10 @@
     <header class="content-header">
         <div class="meta mb-3">
             <div class="category"><?php the_category('/ '); ?></div>
-            <h3 class="article-title" style="overflow-wrap: anywhere"><?php the_title(); ?></h3>
+            <h2 class="article-title" style="overflow-wrap: anywhere"><?php the_title(); ?></h2>
             <?php
             $subheading = get_post_custom_values('subheading') ? get_post_custom_values('subheading')[0]:'';
-            echo '<h4 class="subheading">' . $subheading . '</h4>';
+            echo '<h3 class="subheading">' . $subheading . '</h3>';
             ?>
             <hr>
             <span class="date" style="padding-right:2%;"><?php the_date() ?></span>
