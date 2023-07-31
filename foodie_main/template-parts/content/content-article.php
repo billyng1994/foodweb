@@ -40,16 +40,18 @@
         while ( $query2->have_posts() ) {
             $query2->the_post();
             $subheading = get_post_custom_values('subheading', $query2->post->ID) ? get_post_custom_values('subheading', $query2->post->ID)[0]:'';
-
+            $categories = get_the_category($query2->post->ID);
             echo '<div class="container postlist" style="border:none">    
             <div  style="width:-webkit-fill-available;">';
             echo '<div thumbnailContainer"><a href="'. get_permalink($query2->post->ID).'">'. get_the_post_thumbnail($query2->post->ID). '</a></div>';
+            echo '<a href="' . esc_url( get_category_link( $categories[0]->term_id ) ) . '">';
+            echo '<div class="category" style="padding: 0.1rem 0;">'. get_the_category($query2->post->ID)[0]->name .'</div>';
+            echo '</a>';
             echo '<div style="overflow-wrap: anywhere;">';
             echo '<a href="'. get_permalink($query2->post->ID) .'">';
             echo  print_title(get_the_title( $query2->post->ID ),120, '<h4 style="padding: 5px 0 0.1rem 0; margin: 5px 0 0.1rem 0; color: black";>','</h4>') ;
             print_title($subheading, 120, '<h5 class="subheading">', '</h5>');
             echo '</a>';
-            echo '<div class="category" style="padding: 0.1rem 0">'. get_the_category($query2->post->ID)[0]->name .'</div>';
             echo '<div class="date" style="padding: 0.1rem 0">'. date('Y-m-d h:i', get_post_timestamp( $query2->post->ID )) .'</div>';
             //echo '<div class="hideinmobile" style="padding: 0.1rem 0">'. get_the_excerpt($query2->post->ID) .'</div>';
             echo '</div></div>
