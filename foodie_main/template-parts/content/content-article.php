@@ -12,7 +12,7 @@
             ?>
             <hr>
             <div style="display:flex;flex-wrap:wrap;">
-            <div class="date" style="padding-right:2%;"><?php the_date() ?></div>
+            <span class="date" style="padding-right:10px;word-break: keep-all;min-width: 100px;text-wrap:nowrap;"><?php the_date() ?></span>
             <?php 
                 the_tags('<div class="tag"><i class="fa fa-tag"></i>', '</div><div class="tag"><i class="fa fa-tag"></i>', '</div>')
             ?>

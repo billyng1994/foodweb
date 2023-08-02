@@ -24,7 +24,9 @@ require_once dirname(dirname(__DIR__))."/posttitle-control.php";
             </a>
             <?php echo '<div class="date">'. date('Y-m-d h:i', get_post_timestamp()) .'</div>'; ?>
             <?php echo the_excerpt(); ?>
-            <?php the_tags('<span class="tag"><i class="fa fa-tag"></i>', '</span><span class="tag"><i class="fa fa-tag"></i>', '</span>'); ?>
+            <div style="display:flex;flex-wrap:wrap;">
+            <?php the_tags('<div class="tag"><i class="fa fa-tag"></i>', '</div><div class="tag"><i class="fa fa-tag"></i>', '</div>'); ?>
+            </div>
         </div>
     </div>    
 </div>
