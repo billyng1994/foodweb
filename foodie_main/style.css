@@ -445,7 +445,8 @@ figure.giveaway{
         font-size: 1.8vmax !important;
     }
     .latesttitledate {
-        font-size: 1.5vw !important;
+        /* font-size: 1.5vw !important; */
+        font-size: 12px !important;
     }
     .category {
         font-size: 12px;
