@@ -11,12 +11,13 @@
             echo '<h3 class="subheading">' . $subheading . '</h3>';
             ?>
             <hr>
-            <span class="date" style="padding-right:2%;"><?php the_date() ?></span>
+            <div style="display:flex;flex-wrap:wrap;">
+            <div class="date" style="padding-right:2%;"><?php the_date() ?></div>
             <?php 
-                the_tags('<span class="tag"><i class="fa fa-tag"></i>', '</span><span class="tag"><i class="fa fa-tag"></i>', '</span>')
+                the_tags('<div class="tag"><i class="fa fa-tag"></i>', '</div><div class="tag"><i class="fa fa-tag"></i>', '</div>')
             ?>
-            <span class="comment"><i class="fa fa-comment"></i> <?php echo comments_number(); ?></span>
-            <div><?php echo the_post_thumbnail('post-thumbnail', array('style' => 'width:100%; height:auto; padding-top:1rem;')); ?></div>
+            </div>
+            <div><?php echo the_post_thumbnail('post-thumbnail', array('style' => 'width:100%; height:auto; padding-top:0.1rem;')); ?></div>
         </div>
     </header>    
     <?php
