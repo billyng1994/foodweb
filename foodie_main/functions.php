@@ -86,6 +86,7 @@ function infinite_scroll() {
         $loop->the_post();
         $currentPostId = $loop->post->ID;
         if(in_array($currentPostId, $_SESSION['showposts'])) continue;
+        $subheading = get_post_custom_values('subheading') ? get_post_custom_values('subheading')[0]:'';
         // your post display code here
         echo '<div class="container postlist shadow-sm my-1">   
         <div class="row w-100">';
@@ -93,7 +94,8 @@ function infinite_scroll() {
         echo '<div class="col">';
         echo '<div class="category"  style="padding: 0.1rem 0;">'.  '<a href="' . esc_url( get_category_link( get_the_category($currentPostId)[0]->term_id ) ) . '">' . get_the_category($currentPostId)[0]->name .'</a></div>';
         echo '<a href="'. get_permalink($currentPostId) .'">';
-        echo print_title(get_the_title($currentPostId),120, '<h2 style="padding: 5px 0; margin: 5px 0; color: black; overflow-wrap: anywhere;"><b>','</b></h2>') ;
+        echo print_title(get_the_title($currentPostId),120, '<h2 style="margin: 5px 0; color: black; overflow-wrap: anywhere; margin-bottom:0.1rem;"><b>','</b></h2>') ;
+        echo print_title($subheading, 120, '<h3 class="subheading">','</h3>');
         echo '</a>';
         echo '<div class="date"  style="padding: 0.1rem 0">'. date('Y-m-d h:i', get_post_timestamp( $currentPostId )) .'</div>';
         echo '<div class="hideinmobile" style="padding: 0.1rem 0">'. get_the_excerpt($currentPostId) .'</div>';
