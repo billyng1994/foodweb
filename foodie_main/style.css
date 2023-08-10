@@ -366,6 +366,14 @@ figure.giveaway{
     h5.latesttitle{
         font-size: 1rem !important;
     }
+    .sponsortag {
+        position:absolute; 
+        top: 0; 
+        right: 0; 
+        z-index:100;
+        max-width:250px; 
+        text-align:end
+    }
 }
 
 /* mobile specific*/
@@ -450,5 +458,13 @@ figure.giveaway{
     }
     .category {
         font-size: 12px;
+    }
+    .sponsortag {
+        position:absolute; 
+        bottom: 0; 
+        right: 0; 
+        z-index:100;
+        max-width:250px; 
+        text-align:end
     }
 }

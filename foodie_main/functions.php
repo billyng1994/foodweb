@@ -121,7 +121,7 @@ function mytheme_custom_excerpt_length( $length ) {
     if($chinese_output) return 4;
     else return 50;
 }
-add_filter( 'excerpt_length', 'mytheme_custom_excerpt_length', 999 );
+add_filter( 'excerpt_length', 'mytheme_custom_excerpt_length', 50 );
 
 function wp_init_session() {
     if ( ! session_id() ) {

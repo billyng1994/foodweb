@@ -91,14 +91,48 @@ require_once __DIR__ . "/posttitle-control.php";
 			echo "<div class='stitle' style='margin:2rem 0'>
 				<span>TRENDING</span>
 			</div>";
+			
+			unset($_SESSION['showposts']);
+			$_SESSION['showposts'] = array();
+
+			// // Editor recommand
+			// wp_reset_postdata();
+			// $query3_args = array(
+			// 	'post_type' => 'post', 
+			// 	'post_status' => 'publish',
+			// 	'orderby' => 'date',
+			// 	'order' => 'DESC',
+			// 	'tag' => 'sponsor'
+			// 	);
+			// $query3 = new WP_Query($query3_args);
+			// while ( $query3->have_posts() ) {
+			// 	$query3->the_post();
+			// 	$currentPostId = $query3->post->ID;
+			// 	if(in_array($currentPostId, $_SESSION['showposts'])) continue;
+			// 	$categories = get_the_category($currentPostId);
+			// 	$subheading = get_post_custom_values('subheading') ? get_post_custom_values('subheading')[0]:'';
+			// 	echo '<div class="container postlist shadow-sm  my-1" style="position:relative">    
+			// 	<div class="row w-100">';
+			// 	echo '<div class="sponsortag">SPONSOR</div>';
+			// 	echo '<div class="col-5 thumbnailContainer"><a href="'. get_permalink($currentPostId).'">'. get_the_post_thumbnail($currentPostId). '</a></div>';
+			// 	echo '<div class="col">';
+			// 	echo '<div class="category" style="padding: 0.1rem 0;">'.  '<a href="' . esc_url( get_category_link( $categories[0]->term_id ) ) . '">' . $categories[0]->name . '</a>' . '</div>';
+			// 	echo '<a href="'. get_permalink($currentPostId) .'">';
+			// 	echo print_title(get_the_title($currentPostId),120, '<h2 style="margin: 5px 0; color: black; overflow-wrap: anywhere; margin-bottom:0.1rem;"><b>','</b></h2>') ;
+			// 	echo print_title($subheading, 120, '<h3 class="subheading">','</h3>');
+			// 	echo '</a>';
+			// 	echo '<div class="date" style="padding: 0.1rem 0">'. date('Y-m-d h:i', get_post_timestamp($currentPostId)) .'</div>';
+			// 	echo '<div class="hideinmobile" style="padding: 0.1rem 0">'. get_the_excerpt($currentPostId) .'</div>';
+			// 	echo '</div></div>
+			// 	</div>';
+			// 	$_SESSION['showposts'][] = $currentPostId;
+			// }
 
 			wp_reset_postdata();
 			$query2 = new WP_Query( array( 'post_type' => 'post', 'post_status' => 'publish','orderby' => 'comment_count', 'order' => 'DESC', 'posts_per_page' => 5 ) );
 
 			echo '<div class="infinite-scroll-wrap" data-next-page="2" data-max-pages="' . $query2->max_num_pages . '" data-ajax-url='. admin_url('admin-ajax.php') .'>';
 
-			unset($_SESSION['showposts']);
-			$_SESSION['showposts'] = array();
 			while ( $query2->have_posts() ) {
 				$query2->the_post();				
 				$currentPostId = $query2->post->ID;
