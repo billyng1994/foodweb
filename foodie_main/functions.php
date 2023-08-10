@@ -115,7 +115,7 @@ function infinite_scroll() {
         echo '</a>';
         echo '<div class="date" style="padding: 0.1rem 0">'. date('Y-m-d h:i', get_post_timestamp($currentPostId)) .'</div>';
         //echo '<div class="hideinmobile" style="padding: 0.1rem 0">'. get_the_excerpt($currentPostId) .'</div>';
-        echo '<div class="hideinmobile" style="padding: 0.1rem 0">'. substr(strip_tags(get_the_content($currentPostId)),0,300) . '<a href="' . get_permalink($currentPostId) . '">' . "...Read More</a>" .'</div>';
+        echo '<div class="hideinmobile" style="padding: 0.1rem 0">'. mb_substr(strip_tags(get_the_content($currentPostId)),0,150, "utf-8") . '<a href="' . get_permalink($currentPostId) . '">' . "...Read More</a>" .'</div>';
         echo '</div></div>
         </div>';
         $_SESSION['showposts'][] = $currentPostId;
