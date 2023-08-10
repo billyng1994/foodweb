@@ -60,6 +60,21 @@ function foodie_register_scripts(){
 // link up the script function to wp
 add_action("wp_enqueue_scripts", "foodie_register_scripts");
 
+
+function wpdocs_excerpt_more( $more ) {
+    return '<a href="'.get_the_permalink().'" rel="nofollow" style="text-decoration: none;">...Read More</a>';
+}
+add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
+
+function mytheme_custom_excerpt_length( $length ) {
+    global $post;
+    //check if its chinese character input
+    $chinese_output = preg_match_all("/\p{Han}+/u", $post->post_content, $matches);
+    if($chinese_output > 0) return 4;
+    else return 50;
+}
+add_filter( 'excerpt_length', 'mytheme_custom_excerpt_length', 50 );
+
 function infinite_scroll() {
     $paged = $_POST['page'];
 
@@ -109,20 +124,6 @@ function infinite_scroll() {
 }
 add_action( 'wp_ajax_infinite_scroll', 'infinite_scroll' );
 add_action( 'wp_ajax_nopriv_infinite_scroll', 'infinite_scroll' );
-
-function wpdocs_excerpt_more( $more ) {
-    return '<a href="'.get_the_permalink().'" rel="nofollow" style="text-decoration: none;">...Read More</a>';
-}
-add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
-
-function mytheme_custom_excerpt_length( $length ) {
-    global $post;
-    //check if its chinese character input
-    $chinese_output = preg_match_all("/\p{Han}+/u", $post->post_content, $matches);
-    if($chinese_output > 0) return 4;
-    else return 50;
-}
-add_filter( 'excerpt_length', 'mytheme_custom_excerpt_length', 50 );
 
 function wp_init_session() {
     if ( ! session_id() ) {
