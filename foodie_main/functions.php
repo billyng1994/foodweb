@@ -69,16 +69,16 @@ function infinite_scroll() {
 
     // show only 5 pages, then give a category page menu
     if($paged > 5 || $loop->post_count <= 0 ) {
-        echo '
-        <div style="display: flex; flex-wrap: wrap; margin: 1%;">
-        <button style="margin: 0.3rem;border-radius: 20px;" type="button" class="btn btn-outline-secondary" onclick="window.location.href=\''. get_home_url() . '/category/districts' .'\'">DISTRICTS</button>
-        <button style="margin: 0.3rem;border-radius: 20px;" type="button" class="btn btn-outline-secondary" onclick="window.location.href=\''. get_home_url() . '/category/cuisine' .'\'">CUISINE</button>
-        <button style="margin: 0.3rem;border-radius: 20px;" type="button" class="btn btn-outline-secondary" onclick="window.location.href=\''. get_home_url() . '/category/michelin' .'\'">MICHELIN</button>
-        <button style="margin: 0.3rem;border-radius: 20px;" type="button" class="btn btn-outline-secondary" onclick="window.location.href=\''. get_home_url() . '/category/topics' .'\'">TOPICS</button>
-        <button style="margin: 0.3rem;border-radius: 20px;" type="button" class="btn btn-outline-secondary" onclick="window.location.href=\''. get_home_url() . '/category/travel' .'\'">TRAVEL</button>
-        <button style="margin: 0.3rem;border-radius: 20px;" type="button" class="btn btn-outline-secondary" onclick="window.location.href=\''. get_home_url() . '/category/limited-offers' .'\'">LIMITED OFFERS</button>
-        </div>
-        ';
+        // echo '
+        // <div style="display: flex; flex-wrap: wrap; margin: 1%;">
+        // <button style="margin: 0.3rem;border-radius: 20px;" type="button" class="btn btn-outline-secondary" onclick="window.location.href=\''. get_home_url() . '/category/districts' .'\'">DISTRICTS</button>
+        // <button style="margin: 0.3rem;border-radius: 20px;" type="button" class="btn btn-outline-secondary" onclick="window.location.href=\''. get_home_url() . '/category/cuisine' .'\'">CUISINE</button>
+        // <button style="margin: 0.3rem;border-radius: 20px;" type="button" class="btn btn-outline-secondary" onclick="window.location.href=\''. get_home_url() . '/category/michelin' .'\'">MICHELIN</button>
+        // <button style="margin: 0.3rem;border-radius: 20px;" type="button" class="btn btn-outline-secondary" onclick="window.location.href=\''. get_home_url() . '/category/topics' .'\'">TOPICS</button>
+        // <button style="margin: 0.3rem;border-radius: 20px;" type="button" class="btn btn-outline-secondary" onclick="window.location.href=\''. get_home_url() . '/category/travel' .'\'">TRAVEL</button>
+        // <button style="margin: 0.3rem;border-radius: 20px;" type="button" class="btn btn-outline-secondary" onclick="window.location.href=\''. get_home_url() . '/category/limited-offers' .'\'">LIMITED OFFERS</button>
+        // </div>
+        // ';
         exit;
     }
 
@@ -86,18 +86,19 @@ function infinite_scroll() {
         $loop->the_post();
         $currentPostId = $loop->post->ID;
         if(in_array($currentPostId, $_SESSION['showposts'])) continue;
+        $categories = get_the_category($currentPostId);
         $subheading = get_post_custom_values('subheading') ? get_post_custom_values('subheading')[0]:'';
         // your post display code here
-        echo '<div class="container postlist shadow-sm my-1">   
+        echo '<div class="container postlist shadow-sm  my-1">    
         <div class="row w-100">';
-        echo '<div class="col-5 thumbnailContainer"><a href="'. get_permalink($currentPostId) .'">'. get_the_post_thumbnail($currentPostId) . '</a></div>';
+        echo '<div class="col-5 thumbnailContainer"><a href="'. get_permalink($currentPostId).'">'. get_the_post_thumbnail($currentPostId). '</a></div>';
         echo '<div class="col">';
-        echo '<div class="category"  style="padding: 0.1rem 0;">'.  '<a href="' . esc_url( get_category_link( get_the_category($currentPostId)[0]->term_id ) ) . '">' . get_the_category($currentPostId)[0]->name .'</a></div>';
+        echo '<div class="category" style="padding: 0.1rem 0;">'.  '<a href="' . esc_url( get_category_link( $categories[0]->term_id ) ) . '">' . $categories[0]->name . '</a>' . '</div>';
         echo '<a href="'. get_permalink($currentPostId) .'">';
         echo print_title(get_the_title($currentPostId),120, '<h2 style="margin: 5px 0; color: black; overflow-wrap: anywhere; margin-bottom:0.1rem;"><b>','</b></h2>') ;
         echo print_title($subheading, 120, '<h3 class="subheading">','</h3>');
         echo '</a>';
-        echo '<div class="date"  style="padding: 0.1rem 0">'. date('Y-m-d h:i', get_post_timestamp( $currentPostId )) .'</div>';
+        echo '<div class="date" style="padding: 0.1rem 0">'. date('Y-m-d h:i', get_post_timestamp($currentPostId)) .'</div>';
         echo '<div class="hideinmobile" style="padding: 0.1rem 0">'. get_the_excerpt($currentPostId) .'</div>';
         echo '</div></div>
         </div>';
@@ -118,7 +119,7 @@ function mytheme_custom_excerpt_length( $length ) {
     global $post;
     //check if its chinese character input
     $chinese_output = preg_match_all("/\p{Han}+/u", $post->post_content, $matches);
-    if($chinese_output) return 4;
+    if($chinese_output > 0) return 4;
     else return 50;
 }
 add_filter( 'excerpt_length', 'mytheme_custom_excerpt_length', 50 );
